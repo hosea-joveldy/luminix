@@ -117,9 +117,6 @@
     phpPackages.composer
     sqlite
     uv
-    # softwares
-    opencode
-    syncthingtray
   ];
 
   fonts.packages = with pkgs; [
