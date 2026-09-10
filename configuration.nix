@@ -98,24 +98,19 @@
   environment.systemPackages = with pkgs; [
     dnsutils
     docker-credential-helpers
-    dolt
     efibootmgr
     fusuma
     gnupg
     htop
     iw
-    icu
     pass
     tree
-    tmux
     ydotool
     # dev related
     git
-    go
     nodejs
     php
     phpPackages.composer
-    sqlite
     uv
   ];
 
