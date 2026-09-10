@@ -8,12 +8,12 @@ My personal NixOS config, built with flakes and Home Manager.
 
 ## What's inside
 - [`configuration.nix`](./configuration.nix): System level config like bootloader, networking, DE, users, and system packages.
-- [`hardware-configuration.nix`](./hardware-configuration.nix): Auto generated config for my machine, you probably shouldn't uses mine and just run the scan command [below](#adjust-for-your-machine).
-- [`flake.nix`](./flake.nix): Defining external links.
-- [`home.nix`](./home.nix): User level config like packages specifically for home manager, softwares.
+- [`hardware-configuration.nix`](./hardware-configuration.nix): Auto generated config for my machine, you probably shouldn't use mine and just run the scan command [below](#adjust-for-your-machine).
+- [`flake.nix`](./flake.nix): Defines external links.
+- [`home.nix`](./home.nix): User level config, software lives here, plus some packages that can only be installed through home manager.
 
 ## Requirements
-1. **NixOS**: Obviously, but you could modify a few things and uses this with just nix.
+1. **NixOS**: Obviously, but you could modify a few things and use this with just nix.
 2. **Git**: To clone the repo.
 
 ## How to use this repo
@@ -26,10 +26,10 @@ git clone https://github.com/hosea-joveldy/luminix.git
 ```
 
 ### Adjust for your machine:
-1. Replace [`hardware-configuration.nix`](./hardware-configuration.nix) with the one generated on your own machine (`sudo nixos-generate-config`), since this file is tailored based on your machine.
+1. Replace [`hardware-configuration.nix`](./hardware-configuration.nix) with the one generated on your own machine (`sudo nixos-generate-config`), since this file is tailored to your machine.
 2. Update `networking.hostName` and the `users.users."lumi"` block in [`configuration.nix`](./configuration.nix) to match your setup.
 3. Update `home.username` and `home.homeDirectory` in [`home.nix`](./home.nix).
-4. If you use fastfetch, make sure to modify the image source, since the image itself isn't on your machine, and i uses kitty which renders image on the terminal, your terminal might not support image rendering.
+4. If you use fastfetch, make sure to modify the image source, since the image itself isn't on your machine, and I use kitty which renders images on the terminal, your terminal might not support image rendering.
 
 ### Build it:
 ```bash
