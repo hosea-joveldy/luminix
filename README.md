@@ -6,6 +6,8 @@
 
 My personal NixOS config, built with flakes and Home Manager.
 
+![Desktop screenshot](./assets/desktop.png)
+
 ## What's inside
 - [`configuration.nix`](./configuration.nix): System level config like bootloader, networking, DE, users, and system packages.
 - [`hardware-configuration.nix`](./hardware-configuration.nix): Auto generated config for my machine, you probably shouldn't use mine and just run the scan command [below](#adjust-for-your-machine).
