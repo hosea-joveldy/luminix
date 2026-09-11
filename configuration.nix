@@ -13,7 +13,14 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
-  # Use the systemd-boot EFI boot loader.
+  swapDevices = [{
+    device = "/var/lib/swapfile";
+    size = 20*1024;
+  }];
+
+  boot.resumeDevice = "/dev/disk/by-uuid/3a14cef4-5ba3-49e9-8667-86f1f8bea8fc";
+  boot.kernelParams = [ "resume_offset=35565568" ];
+
   boot.loader.systemd-boot.enable = false;
   boot.loader.grub = {
     enable = true;
@@ -42,7 +49,6 @@
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
 
-  # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
@@ -72,6 +78,8 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
+
+  services.logind.lidSwitch = "hibernate";
 
   services.udev.extraRules = ''
     KERNEL=="uinput", GROUP="input", MODE="0660", OPTIONS+="static_node=uinput"
