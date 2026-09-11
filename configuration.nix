@@ -19,7 +19,10 @@
   }];
 
   boot.resumeDevice = "/dev/disk/by-uuid/3a14cef4-5ba3-49e9-8667-86f1f8bea8fc";
-  boot.kernelParams = [ "resume_offset=35565568" ];
+  boot.kernelParams = [
+    "resume_offset=35565568"
+    "nvme_core.default_ps_max_latency_us=0"
+  ];
 
   boot.loader.systemd-boot.enable = false;
   boot.loader.grub = {
@@ -119,6 +122,7 @@
     nodejs
     php
     phpPackages.composer
+    python314
     uv
   ];
 
