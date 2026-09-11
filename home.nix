@@ -114,6 +114,33 @@ in
     extraConfig = builtins.readFile ./modules/everforest-dark-hard.conf;
   };
 
+  programs.cava = {
+    enable = true;
+    settings = {
+      general = {
+        bars = 20;
+        framerate = 60;
+        sensitivity = 100;
+      };
+      input = {
+        method = "pipewire";
+      };
+      output = {
+        method = "ncurses";
+      };
+      color = {
+        gradient = 1;
+        gradient_count = 3;
+        gradient_color_1 = "'#a7c080'";
+        gradient_color_2 = "'#dbbc7f'";
+        gradient_color_3 = "'#e67e80'";
+      };
+      smoothing = {
+        noise_reduction = 50;
+      };
+    };
+  };
+
   programs.bash = {
     enable = true;
     bashrcExtra = ''
