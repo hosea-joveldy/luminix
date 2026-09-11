@@ -79,7 +79,7 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
-  services.logind.lidSwitch = "hibernate";
+  services.logind.settings.Login.HandleLidSwitch = "hibernate";
 
   services.udev.extraRules = ''
     KERNEL=="uinput", GROUP="input", MODE="0660", OPTIONS+="static_node=uinput"
