@@ -118,6 +118,17 @@
     pulseaudio
     tree
     ydotool
+
+    # ocr screenshot to text
+    grim
+    slurp
+    tesseract
+    wl-clipboard
+
+    (writeShellScriptBin "ocr-screenshot" ''
+      ${grim}/bin/grim -g "$(${slurp}/bin/slurp)" -t png - | ${tesseract}/bin/tesseract - - 2>/dev/null | ${wl-clipboard}/bin/wl-copy
+    '')
+
     # dev related
     git
     nodejs

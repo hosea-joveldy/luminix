@@ -21,7 +21,6 @@ in
   home.packages = with pkgs; [
     chromium
     libreoffice
-    normcap
     obsidian
     opencode
     syncthingtray
