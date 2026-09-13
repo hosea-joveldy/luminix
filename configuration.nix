@@ -120,13 +120,14 @@
     ydotool
 
     # ocr screenshot to text
-    grim
-    slurp
+    spectacle
     tesseract
     wl-clipboard
 
     (writeShellScriptBin "ocr-screenshot" ''
-      ${grim}/bin/grim -g "$(${slurp}/bin/slurp)" -t png - | ${tesseract}/bin/tesseract - - 2>/dev/null | ${wl-clipboard}/bin/wl-copy
+      ${spectacle}/bin/spectacle -b -r -n -o /tmp/ocr-capture.png
+      ${tesseract}/bin/tesseract /tmp/ocr-capture.png - 2>/dev/null | ${wl-clipboard}/bin/wl-copy
+      rm -f /tmp/ocr-capture.png
     '')
 
     # dev related
