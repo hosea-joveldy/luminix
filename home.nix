@@ -22,6 +22,7 @@ in
     chromium
     libreoffice
     obsidian
+    ollama
     opencode
     syncthingtray
     zed-editor
