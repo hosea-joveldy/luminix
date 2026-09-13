@@ -114,6 +114,7 @@
     gnupg
     htop
     iw
+    os-prober
     pass
     pulseaudio
     tree
