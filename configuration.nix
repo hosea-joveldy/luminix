@@ -120,12 +120,12 @@
     ydotool
 
     # ocr screenshot to text
-    spectacle
+    flameshot
     tesseract
     wl-clipboard
 
     (writeShellScriptBin "ocr-screenshot" ''
-      ${spectacle}/bin/spectacle -b -r -n -o /tmp/ocr-capture.png
+      ${flameshot}/bin/flameshot gui -r -p /tmp/ocr-capture.png
       ${tesseract}/bin/tesseract /tmp/ocr-capture.png - 2>/dev/null | ${wl-clipboard}/bin/wl-copy
       rm -f /tmp/ocr-capture.png
     '')
