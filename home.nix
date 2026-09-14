@@ -14,6 +14,10 @@ in
     "$HOME/go/bin"
   ];
 
+  home.sessionVariables = {
+    QT_QPA_PLATFORMTHEME = "qt6ct";
+  };
+
   home.shellAliases = {
     zed = "zeditor";
   };
@@ -30,6 +34,9 @@ in
 
     # rices
     papirus-icon-theme
+    kdePackages.qtstyleplugin-kvantum
+    libsForQt5.qtstyleplugin-kvantum
+    qt6Packages.qt6ct
   ];
 
   programs.fastfetch = {
@@ -65,6 +72,13 @@ in
       ];
     };
   };
+
+  xdg.configFile."qt6ct/qt6ct.conf".text = ''
+    [Appearance]
+    style=kvantum
+  '';
+
+  xdg.dataFile."color-schemes/Everforest.colors".source = ./modules/Everforest.colors;
 
   xdg.configFile."fastfetch/zed.jsonc".text = builtins.toJSON {
     logo = {
@@ -158,8 +172,6 @@ in
       list-gens = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
     };
   };
-
-  xdg.dataFile."color-schemes/Everforest.colors".source = ./modules/Everforest.colors;
 
   programs.plasma = {
     enable = true;
