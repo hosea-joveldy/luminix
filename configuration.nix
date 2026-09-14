@@ -203,6 +203,7 @@
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
   virtualisation.docker.enable = true;
+  virtualisation.docker.enableOnBoot = false;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
