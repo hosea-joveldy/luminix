@@ -27,6 +27,9 @@ in
     syncthingtray
     zed-editor
     zoom-us
+
+    # rices
+    papirus-icon-theme
   ];
 
   programs.fastfetch = {
