@@ -140,6 +140,17 @@
     uv
   ];
 
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    elisa
+    khelpcenter
+    akonadi
+    kdepim-runtime
+    konsole
+    discover
+    kwrited
+    kwalletmanager
+  ];
+
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
