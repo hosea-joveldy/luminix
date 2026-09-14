@@ -159,6 +159,18 @@ in
     };
   };
 
+  xdg.dataFile."color-schemes/Everforest.colors".source = ./modules/Everforest.colors;
+
+  programs.plasma = {
+    enable = true;
+    kwin = {
+      effects = {
+        blur.enable = true;
+      };
+    };
+    workspace.colorScheme = "Everforest";
+  };
+
   programs.home-manager.enable = true;
 
  }
