@@ -2,6 +2,12 @@
 
 let
   spicePkgs = spicetify-nix.legacyPackages.${pkgs.system};
+  glassyKde = pkgs.fetchFromGitHub {
+    owner = "Pr0cella";
+    repo = "glassy-kde";
+    rev = "master";
+    sha256 = "sha256-IKzfN46bhCE2/xY7kGyKqrc0CCIjegylEmNVuhFQnNc=";
+  };
 in
 {
   imports = [ spicetify-nix.homeManagerModules.default ];
@@ -13,10 +19,6 @@ in
   home.sessionPath = [
     "$HOME/go/bin"
   ];
-
-  home.sessionVariables = {
-    QT_QPA_PLATFORMTHEME = "qt6ct";
-  };
 
   home.shellAliases = {
     zed = "zeditor";
@@ -36,7 +38,6 @@ in
     papirus-icon-theme
     kdePackages.qtstyleplugin-kvantum
     libsForQt5.qtstyleplugin-kvantum
-    qt6Packages.qt6ct
   ];
 
   programs.fastfetch = {
@@ -56,9 +57,9 @@ in
       };
       modules = [
         "title"
-	"break"
+        "break"
         "separator"
-	"break"
+        "break"
         "os"
         "host"
         "kernel"
@@ -73,12 +74,7 @@ in
     };
   };
 
-  xdg.configFile."qt6ct/qt6ct.conf".text = ''
-    [Appearance]
-    style=kvantum
-  '';
-
-  xdg.dataFile."color-schemes/Everforest.colors".source = ./modules/Everforest.colors;
+  xdg.dataFile."plasma/desktoptheme/Glassy".source = ./modules/plasma-theme/Glassy;
 
   xdg.configFile."fastfetch/zed.jsonc".text = builtins.toJSON {
     logo = {
@@ -180,7 +176,11 @@ in
         blur.enable = true;
       };
     };
-    workspace.colorScheme = "Everforest";
+    workspace = {
+      colorScheme = "Glass Dark";
+      theme = "Glassy";
+      widgetStyle = "Glass";
+    };
   };
 
   programs.home-manager.enable = true;
