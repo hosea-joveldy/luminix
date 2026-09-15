@@ -119,7 +119,7 @@ in
     enable = true;
     settings = {
       background_opacity = "0.65";
-      background_blur = 20;
+      background_blur = 10;
       confirm_os_window_close = 0;
       window_padding_width = 10;
       font_family = "JetBrains Nerd Font Mono";
