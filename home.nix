@@ -118,8 +118,8 @@ in
   programs.kitty = {
     enable = true;
     settings = {
-      background_opacity = "0.60";
-      background_blur = 10;
+      background_opacity = "0.80";
+      background_blur = 5;
       confirm_os_window_close = 0;
       window_padding_width = 10;
       font_family = "JetBrains Nerd Font Mono";
@@ -179,7 +179,7 @@ in
     workspace = {
       colorScheme = "Glass Dark";
       theme = "Glassy";
-      widgetStyle = "Glass";
+      widgetStyle = "Klassy";
     };
   };
 
