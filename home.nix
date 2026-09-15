@@ -115,17 +115,17 @@ in
       hidePodcasts
     ];
   };
-
   programs.kitty = {
     enable = true;
     settings = {
-      background_opacity = "0.9";
+      background_opacity = "0.80";
+      background_blur = 20;
       confirm_os_window_close = 0;
       window_padding_width = 10;
       font_family = "JetBrains Nerd Font Mono";
       font_size = 13;
     };
-    extraConfig = builtins.readFile ./modules/everforest-dark-hard.conf;
+    extraConfig = builtins.readFile ./modules/glass-dark.conf;
   };
 
   programs.cava = {
