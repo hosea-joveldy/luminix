@@ -146,6 +146,7 @@
 
     # rice
     inputs.qstyle-glass.packages.${pkgs.stdenv.hostPlatform.system}.default
+    klassy
   ];
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [

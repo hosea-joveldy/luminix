@@ -118,7 +118,7 @@ in
   programs.kitty = {
     enable = true;
     settings = {
-      background_opacity = "0.72";
+      background_opacity = "0.60";
       background_blur = 10;
       confirm_os_window_close = 0;
       window_padding_width = 10;
