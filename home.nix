@@ -2,6 +2,7 @@
 
 let
   spicePkgs = spicetify-nix.legacyPackages.${pkgs.system};
+
   glassyKde = pkgs.fetchFromGitHub {
     owner = "Pr0cella";
     repo = "glassy-kde";
@@ -108,8 +109,7 @@ in
 
   programs.spicetify = {
     enable = true;
-    theme = spicePkgs.themes.comfy;
-    colorScheme = "Yami";
+    theme = spicePkgs.themes.hazy;
     enabledExtensions = with spicePkgs.extensions; [
       adblock
       hidePodcasts

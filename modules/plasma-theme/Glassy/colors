@@ -33,10 +33,10 @@ ForegroundPositive=39,174,96
 ForegroundVisited=155,89,182
 
 [Colors:Complementary]
-BackgroundAlternate=30,87,116
-BackgroundNormal=32,32,32
-DecorationFocus=0,85,255
-DecorationHover=189,147,249
+BackgroundAlternate=90,94,100,110
+BackgroundNormal=70,74,80,60
+DecorationFocus=61,174,233
+DecorationHover=61,174,233
 ForegroundActive=61,174,233
 ForegroundInactive=161,169,177
 ForegroundLink=29,153,243
@@ -61,8 +61,8 @@ ForegroundPositive=39,174,96
 ForegroundVisited=155,89,182
 
 [Colors:Header][Inactive]
-BackgroundAlternate=29,31,34
-BackgroundNormal=20,22,24
+BackgroundAlternate=29,31,34,140
+BackgroundNormal=90,94,100,110
 DecorationFocus=61,174,233
 DecorationHover=61,174,233
 ForegroundActive=61,174,233
@@ -89,8 +89,8 @@ ForegroundPositive=23,104,57
 ForegroundVisited=155,89,182
 
 [Colors:Tooltip]
-BackgroundAlternate=32,35,38
-BackgroundNormal=41,44,48
+BackgroundAlternate=32,35,38,140
+BackgroundNormal=90,94,100,140
 DecorationFocus=61,174,233
 DecorationHover=61,174,233
 ForegroundActive=61,174,233
@@ -117,7 +117,7 @@ ForegroundPositive=39,174,96
 ForegroundVisited=155,89,182
 
 [Colors:Window]
-BackgroundAlternate=41,44,48
+BackgroundAlternate=90,94,100,110
 BackgroundNormal=90,94,100,140
 DecorationFocus=61,174,233
 DecorationHover=0,85,255
@@ -138,9 +138,9 @@ Name=Glass Dark
 contrast=4
 
 [WM]
-activeBackground=39,44,49
+activeBackground=90,94,100,140
 activeBlend=252,252,252
 activeForeground=252,252,252
-inactiveBackground=32,36,40
+inactiveBackground=90,94,100,110
 inactiveBlend=161,169,177
 inactiveForeground=161,169,177
