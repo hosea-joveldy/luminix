@@ -27,6 +27,9 @@ in
     syncthingtray
     zed-editor
     zoom-us
+
+    #game
+    mindustry-wayland
   ];
 
   programs.fastfetch = {
