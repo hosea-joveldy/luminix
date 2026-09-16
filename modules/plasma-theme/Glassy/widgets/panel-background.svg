@@ -150,7 +150,7 @@
      id="top"
      style="opacity:0.55;fill:#5a5e64;fill-opacity:1"
      width="80"
-     height="24"
+     height="16"
      x="24"
      y="5" />
   <rect
@@ -172,7 +172,7 @@
      id="bottom"
      style="opacity:0.55;fill:#5a5e64;fill-opacity:1"
      width="80"
-     height="24"
+     height="16"
      x="24"
      y="-133"
      transform="scale(1,-1)" />
@@ -232,7 +232,7 @@
      id="mask-top"
      style="opacity:1"
      width="80"
-     height="24"
+     height="16"
      x="24"
      y="140" />
   <rect
@@ -254,7 +254,7 @@
      id="mask-bottom"
      style="opacity:1"
      width="80"
-     height="24"
+     height="16"
      x="24"
      y="-268"
      transform="scale(1,-1)" />

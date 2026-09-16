@@ -51,11 +51,6 @@ in
           right = 3;
         };
       };
-      display = {
-        size = {
-          binaryPrefix = "jedec";
-        };
-      };
       modules = [
         "title"
         "break"
@@ -69,6 +64,7 @@ in
         "terminal"
         "cpu"
         "memory"
+        "media"
         "break"
         "colors"
       ];
