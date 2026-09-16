@@ -109,11 +109,11 @@ in
   programs.kitty = {
     enable = true;
     settings = {
-      background_opacity = "0.65";
-      background_blur = 60;
+      background_opacity = "0.80";
       confirm_os_window_close = 0;
       font_family = "JetBrains Nerd Font Mono";
       font_size = 13;
+      window_padding_width = 24;
     };
     extraConfig = builtins.readFile ./modules/kitty-theme.conf;
   };
