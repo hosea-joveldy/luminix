@@ -77,11 +77,16 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    wireplumber.enable = true;
+
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
 
-    # Use the WirePlumber session manager
-    #wireplumber.enable = true;
+    extraConfig.pipewire-pulse."99-disable-flat-volumes" = {
+      "pulse.properties" = {
+        "pulse.flat-volumes" = false;
+      };
+    };
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
