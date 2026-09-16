@@ -13,13 +13,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-    qstyle-glass = {
-      url = "github:4v3ngR/Glass";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = { self, nixpkgs, home-manager, spicetify-nix, plasma, qstyle-glass, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, spicetify-nix, plasma, ... }@inputs:
   {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";

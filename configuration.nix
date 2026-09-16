@@ -150,7 +150,6 @@
     uv
 
     # rice
-    inputs.qstyle-glass.packages.${pkgs.stdenv.hostPlatform.system}.default
     klassy
   ];
 

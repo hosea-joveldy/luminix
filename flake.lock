@@ -73,32 +73,11 @@
         "type": "github"
       }
     },
-    "qstyle-glass": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1777895052,
-        "narHash": "sha256-9w3h3GKnBE89gD1mrWaS/88GqgXnW29+9lYbgO1w+xc=",
-        "owner": "4v3ngR",
-        "repo": "Glass",
-        "rev": "2ec67bf2d28094d629bf3fe9bc55c7a8a393cfb1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "4v3ngR",
-        "repo": "Glass",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "plasma": "plasma",
-        "qstyle-glass": "qstyle-glass",
         "spicetify-nix": "spicetify-nix"
       }
     },

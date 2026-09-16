@@ -2,13 +2,6 @@
 
 let
   spicePkgs = spicetify-nix.legacyPackages.${pkgs.system};
-
-  glassyKde = pkgs.fetchFromGitHub {
-    owner = "Pr0cella";
-    repo = "glassy-kde";
-    rev = "master";
-    sha256 = "sha256-IKzfN46bhCE2/xY7kGyKqrc0CCIjegylEmNVuhFQnNc=";
-  };
 in
 {
   imports = [ spicetify-nix.homeManagerModules.default ];
@@ -34,11 +27,6 @@ in
     syncthingtray
     zed-editor
     zoom-us
-
-    # rices
-    papirus-icon-theme
-    kdePackages.qtstyleplugin-kvantum
-    libsForQt5.qtstyleplugin-kvantum
   ];
 
   programs.fastfetch = {
@@ -121,14 +109,13 @@ in
   programs.kitty = {
     enable = true;
     settings = {
-      background_opacity = "0.55";
-      background_blur = 10;
+      background_opacity = "0.65";
+      background_blur = 60;
       confirm_os_window_close = 0;
-      window_padding_width = 10;
       font_family = "JetBrains Nerd Font Mono";
       font_size = 13;
     };
-    extraConfig = builtins.readFile ./modules/glass-dark.conf;
+    extraConfig = builtins.readFile ./modules/kitty-theme.conf;
   };
 
   programs.cava = {
@@ -169,6 +156,7 @@ in
     '';
     shellAliases = {
       list-gens = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
+      nix-build = "sudo nixos-rebuild switch --flake /etc/nixos#nixos";
     };
   };
 
@@ -180,10 +168,13 @@ in
       };
     };
     workspace = {
-      colorScheme = "Glass Dark";
+      colorScheme = "Klassy Dark";
       theme = "Glassy";
       widgetStyle = "Klassy";
     };
+
+    configFile."kwinrc"."org.kde.kdecoration2"."library" = "org.kde.klassy";
+    configFile."kwinrc"."org.kde.kdecoration2"."theme" = "Klassy";
   };
 
   programs.home-manager.enable = true;
