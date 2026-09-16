@@ -184,32 +184,6 @@ in
       theme = "Glassy";
       widgetStyle = "Klassy";
     };
-    panel = {
-    {
-      location = "top";
-      floating = true;
-      alignment = "left";
-      widthMode = "fit";
-      height = 40;
-      widgets = [ "org.kde.plasma.kickoff" "org.kde.plasma.mediaplayer" ];
-    }
-    {
-      location = "top";
-      floating = true;
-      alignment = "center";
-      widthMode = "fit";
-      height = 40;
-      widgets = [ "org.kde.plasma.digitalclock" ];
-    }
-    {
-      location = "top";
-      floating = true;
-      alignment = "right";
-      widthMode = "fit";
-      height = 40;
-      widgets = [ "org.kde.plasma.systemtray" ];
-    }
-    };
   };
 
   programs.home-manager.enable = true;
