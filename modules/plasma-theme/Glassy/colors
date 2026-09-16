@@ -19,10 +19,10 @@ IntensityAmount=0
 IntensityEffect=0
 
 [Colors:Button]
-BackgroundAlternate=30,87,116
-BackgroundNormal=90,94,100,160
-DecorationFocus=0,85,255
-DecorationHover=0,85,255
+BackgroundAlternate=75,79,85,130
+BackgroundNormal=90,94,100,130
+DecorationFocus=61,174,233
+DecorationHover=61,174,233
 ForegroundActive=61,174,233
 ForegroundInactive=161,169,177
 ForegroundLink=29,153,243
@@ -33,8 +33,8 @@ ForegroundPositive=39,174,96
 ForegroundVisited=155,89,182
 
 [Colors:Complementary]
-BackgroundAlternate=90,94,100,165
-BackgroundNormal=75,79,85,140
+BackgroundAlternate=75,79,85,130
+BackgroundNormal=90,94,100,130
 DecorationFocus=61,174,233
 DecorationHover=61,174,233
 ForegroundActive=61,174,233
@@ -47,8 +47,8 @@ ForegroundPositive=39,174,96
 ForegroundVisited=155,89,182
 
 [Colors:Header]
-BackgroundAlternate=75,79,85,160
-BackgroundNormal=90,94,100,170
+BackgroundAlternate=75,79,85,130
+BackgroundNormal=90,94,100,130
 DecorationFocus=61,174,233
 DecorationHover=61,174,233
 ForegroundActive=61,174,233
@@ -61,8 +61,8 @@ ForegroundPositive=39,174,96
 ForegroundVisited=155,89,182
 
 [Colors:Header][Inactive]
-BackgroundAlternate=75,79,85,140
-BackgroundNormal=90,94,100,140
+BackgroundAlternate=75,79,85,100
+BackgroundNormal=90,94,100,100
 DecorationFocus=61,174,233
 DecorationHover=61,174,233
 ForegroundActive=61,174,233
@@ -75,8 +75,8 @@ ForegroundPositive=39,174,96
 ForegroundVisited=155,89,182
 
 [Colors:Selection]
-BackgroundAlternate=30,87,116
-BackgroundNormal=61,174,233
+BackgroundAlternate=75,79,85,190
+BackgroundNormal=61,174,233,190
 DecorationFocus=61,174,233
 DecorationHover=61,174,233
 ForegroundActive=252,252,252
@@ -89,8 +89,8 @@ ForegroundPositive=23,104,57
 ForegroundVisited=155,89,182
 
 [Colors:Tooltip]
-BackgroundAlternate=75,79,85,170
-BackgroundNormal=90,94,100,170
+BackgroundAlternate=75,79,85,190
+BackgroundNormal=90,94,100,190
 DecorationFocus=61,174,233
 DecorationHover=61,174,233
 ForegroundActive=61,174,233
@@ -103,8 +103,8 @@ ForegroundPositive=39,174,96
 ForegroundVisited=155,89,182
 
 [Colors:View]
-BackgroundAlternate=75,79,85,140
-BackgroundNormal=90,94,100,165
+BackgroundAlternate=75,79,85,130
+BackgroundNormal=90,94,100,130
 DecorationFocus=0,170,255
 DecorationHover=0,170,255
 ForegroundActive=61,174,233
@@ -117,8 +117,8 @@ ForegroundPositive=39,174,96
 ForegroundVisited=155,89,182
 
 [Colors:Window]
-BackgroundAlternate=75,79,85,140
-BackgroundNormal=90,94,100,165
+BackgroundAlternate=75,79,85,130
+BackgroundNormal=90,94,100,130
 DecorationFocus=61,174,233
 DecorationHover=0,85,255
 ForegroundActive=61,174,233
@@ -135,12 +135,12 @@ ColorScheme=GlassDark
 Name=Glass Dark
 
 [KDE]
-contrast=4
+contrast=3
 
 [WM]
-activeBackground=90,94,100,165
+activeBackground=90,94,100,130
 activeBlend=252,252,252
 activeForeground=252,252,252
-inactiveBackground=75,79,85,140
+inactiveBackground=75,79,85,100
 inactiveBlend=161,169,177
 inactiveForeground=161,169,177
