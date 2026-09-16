@@ -221,10 +221,6 @@
     openDefaultPorts = true;
   };
 
-  xdg.mimeApps.defaultApplications = {
-    "terminal" = "kitty.desktop";
-  };
-
   nix.settings.experimental-features = ["nix-command" "flakes"];
   virtualisation.docker.enable = true;
   virtualisation.docker.enableOnBoot = false;

@@ -71,6 +71,13 @@ in
     };
   };
 
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "application/x-terminal-emulator" = "kitty.desktop";
+    };
+  };
+
   xdg.dataFile."plasma/desktoptheme/Glassy".source = ./modules/plasma-theme/Glassy;
 
   xdg.configFile."fastfetch/zed.jsonc".text = builtins.toJSON {
@@ -176,6 +183,32 @@ in
       colorScheme = "Glass Dark";
       theme = "Glassy";
       widgetStyle = "Klassy";
+    };
+    panel = {
+    {
+      location = "top";
+      floating = true;
+      alignment = "left";
+      widthMode = "fit";
+      height = 40;
+      widgets = [ "org.kde.plasma.kickoff" "org.kde.plasma.mediaplayer" ];
+    }
+    {
+      location = "top";
+      floating = true;
+      alignment = "center";
+      widthMode = "fit";
+      height = 40;
+      widgets = [ "org.kde.plasma.digitalclock" ];
+    }
+    {
+      location = "top";
+      floating = true;
+      alignment = "right";
+      widthMode = "fit";
+      height = 40;
+      widgets = [ "org.kde.plasma.systemtray" ];
+    }
     };
   };
 
