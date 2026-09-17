@@ -144,33 +144,33 @@
      y="0" />
   <path
      id="topright"
-     style="opacity:0.55;fill:#5a5e64;fill-opacity:1"
+     style="opacity:0.35;fill:#101314;fill-opacity:1"
      d="m 104,5.000917 v 23.999998 h 24 c 0,-13.296 -10.704,-23.999998 -24,-23.999998 z" />
   <rect
      id="top"
-     style="opacity:0.55;fill:#5a5e64;fill-opacity:1"
+     style="opacity:0.35;fill:#101314;fill-opacity:1"
      width="80"
      height="16"
      x="24"
      y="5" />
   <rect
      id="center"
-     style="opacity:0.55;fill:#5a5e64;fill-opacity:1"
+     style="opacity:0.35;fill:#101314;fill-opacity:1"
      width="80"
      height="80"
      x="24"
      y="29" />
   <path
      id="topleft"
-     style="opacity:0.55;fill:#5a5e64;fill-opacity:1"
+     style="opacity:0.35;fill:#101314;fill-opacity:1"
      d="M 24.000017,5.000001 V 28.999999 H 1.7081479e-5 C 1.7081479e-5,15.703999 10.704017,5.000001 24.000017,5.000001 Z" />
   <path
      id="bottomright"
-     style="opacity:0.55;fill:#5a5e64;fill-opacity:1"
+     style="opacity:0.35;fill:#101314;fill-opacity:1"
      d="m 104,132.99908 v -24 h 24 c 0,13.29602 -10.704,24 -24,24 z" />
   <rect
      id="bottom"
-     style="opacity:0.55;fill:#5a5e64;fill-opacity:1"
+     style="opacity:0.35;fill:#101314;fill-opacity:1"
      width="80"
      height="16"
      x="24"
@@ -178,11 +178,11 @@
      transform="scale(1,-1)" />
   <path
      id="bottomleft"
-     style="opacity:0.55;fill:#5a5e64;fill-opacity:1"
+     style="opacity:0.35;fill:#101314;fill-opacity:1"
      d="M 24.000017,133 V 109 H 1.7081479e-5 c 0,13.29602 10.703999918521,24 23.999999918521,24 z" />
   <rect
      id="left"
-     style="opacity:0.55;fill:#5a5e64;fill-opacity:1"
+     style="opacity:0.35;fill:#101314;fill-opacity:1"
      width="80"
      height="24"
      x="29"
@@ -190,7 +190,7 @@
      transform="rotate(90)" />
   <rect
      id="right"
-     style="opacity:0.55;fill:#5a5e64;fill-opacity:1"
+     style="opacity:0.35;fill:#101314;fill-opacity:1"
      width="80"
      height="24"
      x="29"
