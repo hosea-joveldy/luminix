@@ -172,6 +172,7 @@ in
     };
     workspace = {
       colorScheme = "Klassy Dark";
+      iconTheme = "Klassy Dark";
       theme = "Glassy";
       widgetStyle = "Klassy";
     };
