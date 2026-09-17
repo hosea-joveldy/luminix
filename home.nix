@@ -112,7 +112,7 @@ in
   programs.kitty = {
     enable = true;
     settings = {
-      background_opacity = "0.80";
+      background_opacity = "0.65";
       confirm_os_window_close = 0;
       font_family = "JetBrains Nerd Font Mono";
       font_size = 13;
