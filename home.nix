@@ -70,6 +70,9 @@ in
   };
 
   xdg.dataFile."plasma/desktoptheme/Glassy".source = ./modules/plasma-theme/Glassy;
+  xdg.dataFile."plasma/look-and-feel/GlassDark/contents/splash/Splash.qml".source = ./modules/splash/Splash.qml;
+  xdg.dataFile."plasma/look-and-feel/GlassDark/contents/splash/images/nix-snowflake.svg".source = ./modules/splash/images/nix-snowflake.svg;
+  xdg.dataFile."plasma/look-and-feel/GlassDark/metadata.desktop".source = ./modules/splash/metadata.desktop;
 
   xdg.configFile."fastfetch/zed.jsonc".text = builtins.toJSON {
     logo = {
