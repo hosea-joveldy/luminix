@@ -20,7 +20,7 @@ in
 
   home.packages = with pkgs; [
     chromium
-    libreoffice
+    libreoffice-qt
     obsidian
     ollama
     opencode
@@ -171,14 +171,8 @@ in
       };
     };
     workspace = {
-      colorScheme = "Klassy Dark";
-      iconTheme = "Klassy Dark";
       theme = "Glassy";
-      widgetStyle = "Klassy";
     };
-
-    configFile."kwinrc"."org.kde.kdecoration2"."library" = "org.kde.klassy";
-    configFile."kwinrc"."org.kde.kdecoration2"."theme" = "Klassy";
   };
 
   programs.home-manager.enable = true;

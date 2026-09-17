@@ -148,9 +148,6 @@
     phpPackages.composer
     python314
     uv
-
-    # rice
-    klassy
   ];
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
