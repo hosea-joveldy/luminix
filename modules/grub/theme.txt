@@ -9,7 +9,7 @@ title-text: ""
   left = 32%
   width = 3%
   align = "left"
-  font = "JetBrainsMono Nerd Font Mono 20"
+  font = "JetBrainsMono NFM Regular 20"
   text = "N"
   color = "#3daee9"
 }
@@ -19,7 +19,7 @@ title-text: ""
   left = 34%
   width = 18%
   align = "left"
-  font = "JetBrainsMono Nerd Font Mono 20"
+  font = "JetBrainsMono NFM Regular 20"
   text = "NIXOS"
   color = "#e8eaec"
 }
@@ -29,7 +29,7 @@ title-text: ""
   left = 55%
   width = 12%
   align = "left"
-  font = "JetBrainsMono Nerd Font Mono 16"
+  font = "JetBrainsMono NFM Regular 16"
   text = "25.05"
   color = "#3daee9"
 }
@@ -41,7 +41,7 @@ title-text: ""
   left = 32%
   width = 40%
   align = "left"
-  font = "JetBrainsMono Nerd Font Mono 11"
+  font = "JetBrainsMono NFM Regular 11"
   text = "DECLARATIVE / REPRODUCIBLE"
   color = "#e8eaec"
 }
@@ -53,7 +53,7 @@ title-text: ""
   left = 32%
   width = 20%
   align = "left"
-  font = "JetBrainsMono Nerd Font Mono 16"
+  font = "JetBrainsMono NFM Regular 16"
   text = "SELECT BOOT"
   color = "#3daee9"
 }
@@ -66,7 +66,7 @@ title-text: ""
   width = 40%
   height = 28%
 
-  item_font = "JetBrainsMono Nerd Font Mono 11"
+  item_font = "JetBrainsMono NFM Regular 11"
 
   item_height = 28
   item_padding = 0
@@ -86,7 +86,7 @@ title-text: ""
   left = 2%
   width = 8%
   align = "left"
-  font = "JetBrainsMono Nerd Font Mono 9"
+  font = "JetBrainsMono NFM Regular 9"
   text = "v1.0"
   color = "#3daee9"
 }
