@@ -26,6 +26,7 @@
   boot.kernelParams = [
     "resume_offset=35565568"
     "nvme_core.default_ps_max_latency_us=0"
+    "usbcore.autosuspend=-1"
   ];
 
   boot.loader.systemd-boot.enable = false;
