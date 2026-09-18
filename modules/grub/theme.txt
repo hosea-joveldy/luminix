@@ -1,0 +1,92 @@
+desktop-image: "stray.jpg"
+desktop-color: "#101314"
+title-text: ""
+
+# SYSTEM LABEL
+
++ label {
+  top = 34%
+  left = 32%
+  width = 3%
+  align = "left"
+  font = "JetBrainsMono Nerd Font Mono 20"
+  text = "N"
+  color = "#3daee9"
+}
+
++ label {
+  top = 34%
+  left = 34%
+  width = 18%
+  align = "left"
+  font = "JetBrainsMono Nerd Font Mono 20"
+  text = "NIXOS"
+  color = "#e8eaec"
+}
+
++ label {
+  top = 34%
+  left = 55%
+  width = 12%
+  align = "left"
+  font = "JetBrainsMono Nerd Font Mono 16"
+  text = "25.05"
+  color = "#3daee9"
+}
+
+# SUBTITLE
+
++ label {
+  top = 38%
+  left = 32%
+  width = 40%
+  align = "left"
+  font = "JetBrainsMono Nerd Font Mono 11"
+  text = "DECLARATIVE / REPRODUCIBLE"
+  color = "#e8eaec"
+}
+
+# STATUS
+
++ label {
+  top = 45%
+  left = 32%
+  width = 20%
+  align = "left"
+  font = "JetBrainsMono Nerd Font Mono 16"
+  text = "SELECT BOOT"
+  color = "#3daee9"
+}
+
+# MENU
+
++ boot_menu {
+  left = 32%
+  top = 52%
+  width = 40%
+  height = 28%
+
+  item_font = "JetBrainsMono Nerd Font Mono 11"
+
+  item_height = 28
+  item_padding = 0
+  item_spacing = 4
+  item_icon_space = 0
+
+  item_color = "#e8eaec"
+  selected_item_color = "#3daee9"
+
+  scrollbar = false
+}
+
+# VERSION
+
++ label {
+  top = 97%
+  left = 2%
+  width = 8%
+  align = "left"
+  font = "JetBrainsMono Nerd Font Mono 9"
+  text = "v1.0"
+  color = "#3daee9"
+}

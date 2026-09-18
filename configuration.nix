@@ -30,6 +30,9 @@
     device = "nodev";
     efiSupport = true;
     useOSProber = true;
+    theme = /home/lumi/lab/projects/luminix/modules/grub;
+    font = "${pkgs.nerd-fonts.jetbrains-mono}/share/fonts/truetype/NerdFonts/JetBrainsMono/JetBrainsMonoNerdFontMono-Regular.ttf";
+    fontSize = 16;
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
