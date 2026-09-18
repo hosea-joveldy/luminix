@@ -1,0 +1,8 @@
+{
+    "KPackageStructure": "Plasma/LookAndFeel",
+    "KPlugin": {
+        "Id": "GlassDark",
+        "Name": "Glass Dark",
+        "Description": "Nix themed splash"
+    }
+}

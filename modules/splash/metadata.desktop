@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=Glass Dark
-Comment=Nix themed splash
-X-KDE-PluginInfo-Name=GlassDark
-X-Plasma-MainScript=contents/splash/Splash.qml
-Type=Service
-ServiceTypes=Plasma/LookAndFeel
