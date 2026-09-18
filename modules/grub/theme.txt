@@ -1,4 +1,4 @@
-desktop-image: "stray.jpg"
+desktop-image: "stray.png"
 desktop-color: "#101314"
 title-text: ""
 
