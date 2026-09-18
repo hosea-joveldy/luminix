@@ -1,23 +1,13 @@
-desktop-image: "stray.png"
+desktop-image: "full_bg.png"
 desktop-color: "#101314"
 title-text: ""
 
 # SYSTEM LABEL
 
 + label {
-  top = 34%
-  left = 32%
-  width = 3%
-  align = "left"
-  font = "JetBrainsMono NFM Regular 20"
-  text = "N"
-  color = "#3daee9"
-}
-
-+ label {
-  top = 34%
-  left = 34%
-  width = 18%
+  top = 4%
+  left = 4%
+  width = 30%
   align = "left"
   font = "JetBrainsMono NFM Regular 20"
   text = "NIXOS"
@@ -25,8 +15,8 @@ title-text: ""
 }
 
 + label {
-  top = 34%
-  left = 55%
+  top = 4%
+  left = 30%
   width = 12%
   align = "left"
   font = "JetBrainsMono NFM Regular 16"
@@ -37,8 +27,8 @@ title-text: ""
 # SUBTITLE
 
 + label {
-  top = 38%
-  left = 32%
+  top = 9%
+  left = 4%
   width = 40%
   align = "left"
   font = "JetBrainsMono NFM Regular 11"
@@ -49,8 +39,8 @@ title-text: ""
 # STATUS
 
 + label {
-  top = 45%
-  left = 32%
+  top = 15%
+  left = 4%
   width = 20%
   align = "left"
   font = "JetBrainsMono NFM Regular 16"
@@ -61,16 +51,16 @@ title-text: ""
 # MENU
 
 + boot_menu {
-  left = 32%
-  top = 52%
-  width = 40%
-  height = 28%
+  left = 4%
+  top = 22%
+  width = 60%
+  height = 40%
 
   item_font = "JetBrainsMono NFM Regular 11"
 
-  item_height = 28
+  item_height = 32
   item_padding = 0
-  item_spacing = 4
+  item_spacing = 6
   item_icon_space = 0
 
   item_color = "#e8eaec"
@@ -79,12 +69,37 @@ title-text: ""
   scrollbar = false
 }
 
+# TIMEOUT PROGRESS BAR
+
++ progress_bar {
+  id = "__timeout__"
+  left = 4%
+  top = 65%
+  width = 40%
+  height = 20
+  fg_color = "#3daee9"
+  bg_color = "#22252b"
+  border_color = "#101314"
+}
+
+# PRESS ENTER PROMPT
+
++ label {
+  top = 70%
+  left = 4%
+  width = 40%
+  align = "left"
+  font = "JetBrainsMono NFM Regular 11"
+  text = "PRESS ENTER TO CONTINUE"
+  color = "#7f8a92"
+}
+
 # VERSION
 
 + label {
   top = 97%
-  left = 2%
-  width = 8%
+  left = 4%
+  width = 20%
   align = "left"
   font = "JetBrainsMono NFM Regular 9"
   text = "v1.0"
