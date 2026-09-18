@@ -18,6 +18,10 @@
     size = 20*1024;
   }];
 
+  boot.extraModprobeConfig = ''
+    options rtw88_pci disable_aspm=1
+  '';
+
   boot.resumeDevice = "/dev/disk/by-uuid/3a14cef4-5ba3-49e9-8667-86f1f8bea8fc";
   boot.kernelParams = [
     "resume_offset=35565568"
@@ -46,7 +50,6 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable networking
   networking.networkmanager.enable = true;
   networking.networkmanager.wifi.powersave = false;
 
