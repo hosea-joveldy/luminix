@@ -7,12 +7,15 @@
 My personal NixOS config, built with flakes and Home Manager.
 
 ![Desktop screenshot](./assets/desktop.png)
+![Grub screenshot](./assets/grub.png)
 
 ## What's inside
 - [`configuration.nix`](./configuration.nix): System level config like bootloader, networking, DE, users, and system packages.
 - [`hardware-configuration.nix`](./hardware-configuration.nix): Auto generated config for my machine, you probably shouldn't use mine and just run the scan command [below](#adjust-for-your-machine).
 - [`flake.nix`](./flake.nix): Defines external links.
 - [`home.nix`](./home.nix): User level config, software lives here, plus some packages that can only be installed through home manager.
+- [`assets`](./assets): Assets used for README.
+- [`modules`](./modules): Config for most rices.
 
 ## Requirements
 1. **NixOS**: Obviously, but you could modify a few things and use this with just nix.
