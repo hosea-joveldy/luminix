@@ -1,70 +1,36 @@
 desktop-image: "full_bg.png"
-desktop-color: "#1a2419"
+desktop-color: "#1a0f0a"
 title-text: ""
-
-# SYSTEM LABEL
-
-+ label {
-  top = 4%
-  left = 4%
-  width = 30%
-  align = "left"
-  font = "JetBrainsMono NFM Regular 20"
-  text = "NIXOS"
-  color = "#e8eaec"
-}
-
-+ label {
-  top = 4%
-  left = 26%
-  width = 15%
-  align = "left"
-  font = "JetBrainsMono NFM Regular 20"
-  text = "25.05"
-  color = "#8fae6a"
-}
-
-# SUBTITLE
-
-+ label {
-  top = 10%
-  left = 4%
-  width = 40%
-  align = "left"
-  font = "JetBrainsMono NFM Regular 16"
-  text = "DECLARATIVE / REPRODUCIBLE"
-  color = "#a9b89a"
-}
 
 # STATUS
 
 + label {
-  top = 17%
-  left = 4%
-  width = 25%
+  top = 20%
+  left = 6%
+  width = 30%
   align = "left"
   font = "JetBrainsMono NFM Regular 20"
   text = "SELECT BOOT"
-  color = "#c9702e"
+  color = "#5ce1e6"
 }
 
 # MENU
 
 + boot_menu {
-  left = 8%
+  left = 6%
   top = 30%
   width = 34%
   height = 40%
 
-  item_font = "JetBrainsMono NFM Regular 16"
+  item_font = "JetBrainsMono NFM Regular 18"
 
-  item_height = 40
+  item_height = 44
   item_padding = 0
-  item_spacing = 8
+  item_spacing = 10
   item_icon_space = 0
 
-  item_color = "#a9b89a"
-  selected_item_color = "#c9702e"
+  item_color = "#e8c9a0"
+  selected_item_color = "#5ce1e6"
 
   scrollbar = false
 }
@@ -73,23 +39,11 @@ title-text: ""
 
 + progress_bar {
   id = "__timeout__"
-  left = 4%
-  top = 68%
-  width = 40%
-  height = 24
-  fg_color = "#c9702e"
-  bg_color = "#22252b"
-  border_color = "#101314"
-}
-
-# VERSION
-
-+ label {
-  top = 97%
-  left = 4%
-  width = 20%
-  align = "left"
-  font = "JetBrainsMono NFM Regular 11"
-  text = "v1.0"
-  color = "#c9702e"
+  left = 6%
+  top = 74%
+  width = 32%
+  height = 26
+  fg_color = "#5ce1e6"
+  bg_color = "#2a1810"
+  border_color = "#1a0f0a"
 }

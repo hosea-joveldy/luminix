@@ -36,6 +36,9 @@
     efiSupport = true;
     useOSProber = true;
     theme = ./modules/grub;
+    extraConfig = ''
+      set gfxpayload=keep
+    '';
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
