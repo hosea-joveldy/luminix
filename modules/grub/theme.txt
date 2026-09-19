@@ -31,7 +31,7 @@ title-text: ""
   selected_item_font = "JetBrainsMono NFM Regular 20"
 
   item_color = "#e8dcc8"
-  selected_item_color = "#1a0f0a"
+  selected_item_color = "#3d1a0a"
 
   item_pixmap_style = "mi_*.png"
   selected_item_pixmap_style = "mi_s_*.png"
