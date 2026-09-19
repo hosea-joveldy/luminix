@@ -5,32 +5,36 @@ title-text: ""
 # STATUS
 
 + label {
-  top = 20%
+  top = 18%
   left = 6%
   width = 30%
   align = "left"
   font = "JetBrainsMono NFM Regular 20"
   text = "SELECT BOOT"
-  color = "#5ce1e6"
+  color = "#ff8c42"
 }
 
 # MENU
 
 + boot_menu {
   left = 6%
-  top = 30%
-  width = 34%
-  height = 40%
+  top = 28%
+  width = 36%
+  height = 42%
 
-  item_font = "JetBrainsMono NFM Regular 18"
-
-  item_height = 44
-  item_padding = 0
-  item_spacing = 10
+  item_height = 50
+  item_padding = 10
+  item_spacing = 14
   item_icon_space = 0
 
-  item_color = "#e8c9a0"
-  selected_item_color = "#5ce1e6"
+  item_font = "JetBrainsMono NFM Regular 20"
+  selected_item_font = "JetBrainsMono NFM Regular 20"
+
+  item_color = "#e8dcc8"
+  selected_item_color = "#1a0f0a"
+
+  item_pixmap_style = "mi_*.png"
+  selected_item_pixmap_style = "mi_s_*.png"
 
   scrollbar = false
 }
@@ -43,7 +47,7 @@ title-text: ""
   top = 74%
   width = 32%
   height = 26
-  fg_color = "#5ce1e6"
-  bg_color = "#2a1810"
+  fg_color = "#ff8c42"
+  bg_color = "#2a1410"
   border_color = "#1a0f0a"
 }
