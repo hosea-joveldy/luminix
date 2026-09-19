@@ -21,7 +21,7 @@ title-text: ""
   align = "left"
   font = "JetBrainsMono NFM Regular 16"
   text = "25.05"
-  color = "#3daee9"
+  color = "#8fae6a"
 }
 
 # SUBTITLE
@@ -33,7 +33,7 @@ title-text: ""
   align = "left"
   font = "JetBrainsMono NFM Regular 11"
   text = "DECLARATIVE / REPRODUCIBLE"
-  color = "#e8eaec"
+  color = "#a9b89a"
 }
 
 # STATUS
@@ -45,7 +45,7 @@ title-text: ""
   align = "left"
   font = "JetBrainsMono NFM Regular 16"
   text = "SELECT BOOT"
-  color = "#3daee9"
+  color = "#c9702e"
 }
 
 # MENU
@@ -53,7 +53,7 @@ title-text: ""
 + boot_menu {
   left = 4%
   top = 22%
-  width = 60%
+  width = 50%
   height = 40%
 
   item_font = "JetBrainsMono NFM Regular 11"
@@ -63,8 +63,8 @@ title-text: ""
   item_spacing = 6
   item_icon_space = 0
 
-  item_color = "#e8eaec"
-  selected_item_color = "#3daee9"
+  item_color = "#a9b89a"
+  selected_item_color = "#c9702e"
 
   scrollbar = false
 }
@@ -77,7 +77,7 @@ title-text: ""
   top = 65%
   width = 40%
   height = 20
-  fg_color = "#3daee9"
+  fg_color = "#c9702e"
   bg_color = "#22252b"
   border_color = "#101314"
 }
@@ -103,5 +103,5 @@ title-text: ""
   align = "left"
   font = "JetBrainsMono NFM Regular 9"
   text = "v1.0"
-  color = "#3daee9"
+  color = "#c9702e"
 }
