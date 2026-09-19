@@ -1,0 +1,84 @@
+# Persona x STRAY  -  GRUB theme  (designed for 1920x1080)
+# panel = left 60 %  |  poster = right 40 %  (see full_bg.png)
+
+desktop-image: "full_bg.png"
+desktop-color: "#140604"
+title-text: ""
+
+# HEADER  (sits on the black banner baked into full_bg.png)
+
++ label {
+  top = 13%
+  left = 7%
+  width = 30%
+  align = "left"
+  font = "JetBrainsMono NFM Regular 20"
+  text = "SELECT BOOT"
+  color = "#ffd23f"
+}
+
+# MENU  (tiles in mi_*.png / mi_s_*.png are exactly item_height = 52 tall)
+
++ boot_menu {
+  left = 6%
+  top = 24%
+  width = 46%
+  height = 46%
+
+  item_height = 52
+  item_padding = 2
+  item_spacing = 8
+  item_icon_space = 0
+
+  item_font = "JetBrainsMono NFM Regular 20"
+  selected_item_font = "JetBrainsMono NFM Regular 20"
+
+  item_color = "#f2dfc0"
+  selected_item_color = "#1a0805"
+
+  item_pixmap_style = "mi_*.png"
+  selected_item_pixmap_style = "mi_s_*.png"
+
+  scrollbar = false
+}
+
+# TIMEOUT  (countdown text + progress bar; height 32 = 30px tiles + 1px transparent pad)
+
++ label {
+  id = "__timeout__"
+  top = 73%
+  left = 6%
+  width = 46%
+  align = "left"
+  font = "JetBrainsMono NFM Regular 20"
+  text = "@TIMEOUT_NOTIFICATION_SHORT@"
+  color = "#ff9e1c"
+}
+
++ progress_bar {
+  id = "__timeout__"
+  left = 6%
+  top = 77%
+  width = 46%
+  height = 32
+
+  bar_style = "pb_*.png"
+  highlight_style = "pb_hl_*.png"
+
+  # fallback only, used if the pngs fail to load
+  fg_color = "#ff9e1c"
+  bg_color = "#1a0a06"
+  border_color = "#b04a17"
+}
+
+# KEY HINTS
+
++ label {
+  top = 91%
+  left = 6%
+  width = 46%
+  align = "left"
+  font = "JetBrainsMono NFM Regular 20"
+  text = "@KEYMAP_SHORT@"
+  color = "#d98a4e"
+}

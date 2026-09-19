@@ -30,15 +30,13 @@
   ];
 
   boot.loader.systemd-boot.enable = false;
+  boot.loader.timeout = 15;
   boot.loader.grub = {
     enable = true;
     device = "nodev";
     efiSupport = true;
     useOSProber = true;
-    theme = ./modules/grub;
-    extraConfig = ''
-      set gfxpayload=keep
-    '';
+    theme = ./modules/grub/persona-stray;
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
