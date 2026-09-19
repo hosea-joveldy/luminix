@@ -1,5 +1,5 @@
 desktop-image: "full_bg.png"
-desktop-color: "#101314"
+desktop-color: "#1a2419"
 title-text: ""
 
 # SYSTEM LABEL
@@ -16,10 +16,10 @@ title-text: ""
 
 + label {
   top = 4%
-  left = 30%
-  width = 12%
+  left = 26%
+  width = 15%
   align = "left"
-  font = "JetBrainsMono NFM Regular 16"
+  font = "JetBrainsMono NFM Regular 20"
   text = "25.05"
   color = "#8fae6a"
 }
@@ -27,11 +27,11 @@ title-text: ""
 # SUBTITLE
 
 + label {
-  top = 9%
+  top = 10%
   left = 4%
   width = 40%
   align = "left"
-  font = "JetBrainsMono NFM Regular 11"
+  font = "JetBrainsMono NFM Regular 16"
   text = "DECLARATIVE / REPRODUCIBLE"
   color = "#a9b89a"
 }
@@ -39,11 +39,11 @@ title-text: ""
 # STATUS
 
 + label {
-  top = 15%
+  top = 17%
   left = 4%
-  width = 20%
+  width = 25%
   align = "left"
-  font = "JetBrainsMono NFM Regular 16"
+  font = "JetBrainsMono NFM Regular 20"
   text = "SELECT BOOT"
   color = "#c9702e"
 }
@@ -51,16 +51,16 @@ title-text: ""
 # MENU
 
 + boot_menu {
-  left = 4%
-  top = 22%
-  width = 50%
+  left = 8%
+  top = 30%
+  width = 34%
   height = 40%
 
-  item_font = "JetBrainsMono NFM Regular 11"
+  item_font = "JetBrainsMono NFM Regular 16"
 
-  item_height = 32
+  item_height = 40
   item_padding = 0
-  item_spacing = 6
+  item_spacing = 8
   item_icon_space = 0
 
   item_color = "#a9b89a"
@@ -74,24 +74,12 @@ title-text: ""
 + progress_bar {
   id = "__timeout__"
   left = 4%
-  top = 65%
+  top = 68%
   width = 40%
-  height = 20
+  height = 24
   fg_color = "#c9702e"
   bg_color = "#22252b"
   border_color = "#101314"
-}
-
-# PRESS ENTER PROMPT
-
-+ label {
-  top = 70%
-  left = 4%
-  width = 40%
-  align = "left"
-  font = "JetBrainsMono NFM Regular 11"
-  text = "PRESS ENTER TO CONTINUE"
-  color = "#7f8a92"
 }
 
 # VERSION
@@ -101,7 +89,7 @@ title-text: ""
   left = 4%
   width = 20%
   align = "left"
-  font = "JetBrainsMono NFM Regular 9"
+  font = "JetBrainsMono NFM Regular 11"
   text = "v1.0"
   color = "#c9702e"
 }
