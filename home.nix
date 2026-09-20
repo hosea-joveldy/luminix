@@ -107,7 +107,13 @@ in
 
   programs.spicetify = {
     enable = true;
-    theme = spicePkgs.themes.hazy;
+    theme = spicePkgs.themes.hazy // {
+      additionalCss = ''
+        .Root__top-container::before {
+          display: none !important;
+        }
+      '';
+    };
     enabledExtensions = with spicePkgs.extensions; [
       adblock
       hidePodcasts
