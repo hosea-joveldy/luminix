@@ -36,7 +36,7 @@
     device = "nodev";
     efiSupport = true;
     useOSProber = true;
-    theme = ./modules/grub/persona-stray;
+    theme = ./modules/grub;
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
