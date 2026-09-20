@@ -1,9 +1,20 @@
-# Persona x STRAY  -  GRUB theme  (designed for 1920x1080)
+# STRAY  -  GRUB theme  (designed for 1920x1080)
 # panel = left 60 %  |  poster = right 40 %  (see full_bg.png)
 
 desktop-image: "full_bg.png"
 desktop-color: "#140604"
 title-text: ""
+
+# CONSOLE WINDOW
+# What you see after picking an entry (and GRUB's plain text-menu fallback).
+# Full-screen + borderless so it sits on the wallpaper instead of floating as a box.
+
+terminal-font: "JetBrainsMono NFM Regular 20"
+terminal-left: "0"
+terminal-top: "0"
+terminal-width: "100%"
+terminal-height: "100%"
+terminal-border: "0"
 
 # HEADER  (sits on the black banner baked into full_bg.png)
 

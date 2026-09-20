@@ -37,6 +37,8 @@
     efiSupport = true;
     useOSProber = true;
     theme = ./modules/grub;
+    splashImage = ./modules/grub/console_bg.png;
+    splashMode = "stretch";
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -233,6 +235,7 @@
     enable = true;
     enableOnBoot = false;
   };
+
   virtualisation.vmVariantWithBootLoader = {
     virtualisation = {
       useEFIBoot = true;
