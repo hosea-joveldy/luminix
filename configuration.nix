@@ -229,8 +229,17 @@
   };
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
-  virtualisation.docker.enable = true;
-  virtualisation.docker.enableOnBoot = false;
+  virtualisation.docker = {
+    enable = true;
+    enableOnBoot = false;
+  };
+  virtualisation.vmVariantWithBootLoader = {
+    virtualisation = {
+      useEFIBoot = true;
+      memorySize = 2048;
+      cores = 2;
+    };
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
