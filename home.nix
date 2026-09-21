@@ -36,9 +36,15 @@ in
   programs.fastfetch = {
     enable = true;
     settings = {
+      display = {
+        color = {
+          keys = "#CCA86A";
+          title = "#B28531";
+        };
+      };
       logo = {
-	type = "kitty";
-        source = "/home/lumi/Pictures/ghibli-cropped.jpg";
+        type = "kitty";
+        source = "./modules/fastfetch/stray.jpg";
         padding = {
           right = 3;
         };

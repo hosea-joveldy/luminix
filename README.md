@@ -41,7 +41,6 @@ git clone https://github.com/hosea-joveldy/luminix.git
 sudo nixos-rebuild switch --flake /etc/nixos#nixos
 ```
 # Todos
-- Update fastfetch from ghibli to something glassmorphism or stray inspired.
 - Switch from KDE to bare hyprland and manual installation.
 
 
