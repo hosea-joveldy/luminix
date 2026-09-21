@@ -44,7 +44,7 @@ in
       };
       logo = {
         type = "kitty";
-        source = "./modules/fastfetch/stray.jpg";
+        source = ./modules/fastfetch/stray.jpg;
         padding = {
           right = 3;
         };
@@ -63,8 +63,6 @@ in
         "cpu"
         "memory"
         "media"
-        "break"
-        "colors"
       ];
     };
   };
