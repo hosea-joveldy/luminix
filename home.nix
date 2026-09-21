@@ -20,6 +20,7 @@ in
 
   home.packages = with pkgs; [
     anki
+    antigravity
     chromium
     libreoffice-qt
     obsidian
