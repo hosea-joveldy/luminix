@@ -172,7 +172,7 @@ in
       confirm_os_window_close = 0;
       font_family = "JetBrains Nerd Font Mono";
       font_size = 13;
-      window_padding_width = 24 24 24 30;
+      window_padding_width = "24 24 24 30";
     };
     extraConfig = builtins.readFile ./modules/kitty-theme.conf;
   };
