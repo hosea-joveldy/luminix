@@ -62,7 +62,7 @@ in
           source = ./modules/fastfetch/stray.png;
           width = 25;
           height = 12;
-          padding = { top = 1; left = 2; right = 3; };
+          padding = { top = 1; right = 4; };
         };
 
         display = {
@@ -172,7 +172,7 @@ in
       confirm_os_window_close = 0;
       font_family = "JetBrains Nerd Font Mono";
       font_size = 13;
-      window_padding_width = "24 24 24 30";
+      window_padding_width = "32";
     };
     extraConfig = builtins.readFile ./modules/kitty-theme.conf;
   };
