@@ -44,7 +44,7 @@ in
       };
       logo = {
         type = "kitty";
-        source = ./modules/fastfetch/stray.jpg;
+        source = ./modules/fastfetch/stray.png;
         padding = {
           right = 3;
         };
