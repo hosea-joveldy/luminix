@@ -45,7 +45,7 @@ in
       };
 
       esc = builtins.fromJSON ''"\u001b"'';
-      swatch = r: g: b: "${esc}[48;2;${toString r};${toString g};${toString b}m   ${esc}[0m";
+      swatch = r: g: b: "${esc}[48;2;${toString r};${toString g};${toString b}m  ${esc}[0m";
       palette = builtins.concatStringsSep " " [
         (swatch 217 112 58)   # orange
         (swatch 212 85 63)    # coral
@@ -60,7 +60,7 @@ in
         logo = {
           type = "kitty-direct";
           source = ./modules/fastfetch/stray.png;
-          width = 24;
+          width = 25;
           height = 12;
           padding = { top = 1; left = 2; right = 3; };
         };
@@ -73,28 +73,36 @@ in
             separator = c.wood;
             output = c.cream;
           };
+          key = { type = "both"; width = 12; };
+          percent = {
+            type = [ "bar" "num" ];
+            color = { green = c.green; yellow = c.gold; red = c.coral; };
+          };
+          bar = {
+            width = 10;
+            border = null;
+            char = { elapsed = "▰"; total = "▱"; };
+          };
         };
 
         modules = [
           "title"
-          { type = "custom"; format = "┌──────────── System ────────────┐"; outputColor = c.wood; }
-          { type = "os";       key = " OS";     keyColor = c.orange; }
-          { type = "host";     key = "󰌢 Host";   keyColor = c.orange; }
-          { type = "kernel";   key = " Kernel"; keyColor = c.orange; }
-          { type = "uptime";   key = "󰅐 Uptime"; keyColor = c.orange; }
-          { type = "packages"; key = "󰏖 Pkgs";   keyColor = c.orange; }
-          { type = "custom"; format = "├──────────── Desktop ───────────┤"; outputColor = c.wood; }
-          { type = "wm";       key = " WM";     keyColor = c.green; }
-          { type = "shell";    key = " Shell";  keyColor = c.green; }
-          { type = "terminal"; key = " Term";   keyColor = c.green; }
-          { type = "custom"; format = "├──────────── Hardware ──────────┤"; outputColor = c.wood; }
-          { type = "cpu";      key = "󰻠 CPU";    keyColor = c.coral; }
-          { type = "gpu";      key = "󰢮 GPU";    keyColor = c.coral; }
-          { type = "memory";   key = "󰍛 RAM";    keyColor = c.coral; }
-          { type = "disk";     key = "󰋊 Disk";   keyColor = c.coral; }
-          { type = "custom"; format = "└────────────────────────────────┘"; outputColor = c.wood; }
-          "break"
-          { type = "media";    key = "󰝚 Playing"; keyColor = c.gold; }
+          "separator"
+          "os"
+          "kernel"
+          "uptime"
+          "wm"
+          "shell"
+          "terminal"
+          { type = "cpu"; format = "{name} ({cores-logical}T)"; }
+          { type = "memory"; format = "{percentage-bar} {used} / {total}"; }
+          {
+            type = "disk";
+            key = "Disk";
+            folders = "/";
+            format = "{size-percentage-bar} {size-used} / {size-total}";
+          }
+          "media"
           "break"
           { type = "custom"; format = palette; }
         ];
@@ -164,7 +172,7 @@ in
       confirm_os_window_close = 0;
       font_family = "JetBrains Nerd Font Mono";
       font_size = 13;
-      window_padding_width = 24;
+      window_padding_width = 24 24 24 30;
     };
     extraConfig = builtins.readFile ./modules/kitty-theme.conf;
   };
