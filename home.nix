@@ -103,7 +103,8 @@ in
             folders = "/";
             format = "{size-percentage-bar} {size-used} / {size-total}";
           }
-          "media"
+          { type = "media"; key = "Playing"; format = "{title:-36}"; }
+          { type = "media"; key = " "; keyIcon = " "; format = "{artist:-36}"; }
           "break"
           { type = "custom"; format = palette; }
         ];
