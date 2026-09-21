@@ -33,39 +33,73 @@ in
     mindustry-wayland
   ];
 
-  programs.fastfetch = {
-    enable = true;
-    settings = {
-      display = {
-        color = {
-          keys = "#CCA86A";
-          title = "#B28531";
-        };
+  programs.fastfetch =
+    let
+      c = {
+        orange = "#D9703A"; # hat
+        coral  = "#D4553F"; # body
+        green  = "#86A873"; # leaves
+        gold   = "#CCA86A"; # your original key color
+        cream  = "#EBD3BC"; # light tones
+        wood   = "#8A6A4A"; # balcony wood
       };
-      logo = {
-        type = "kitty";
-        source = ./modules/fastfetch/stray.png;
-        padding = {
-          right = 3;
-        };
-      };
-      modules = [
-        "title"
-        "break"
-        "separator"
-        "break"
-        "os"
-        "host"
-        "kernel"
-        "shell"
-        "wm"
-        "terminal"
-        "cpu"
-        "memory"
-        "media"
+
+      esc = builtins.fromJSON ''"\u001b"'';
+      swatch = r: g: b: "${esc}[48;2;${toString r};${toString g};${toString b}m   ${esc}[0m";
+      palette = builtins.concatStringsSep " " [
+        (swatch 217 112 58)   # orange
+        (swatch 212 85 63)    # coral
+        (swatch 134 168 115)  # green
+        (swatch 204 168 106)  # gold
+        (swatch 235 211 188)  # cream
+        (swatch 138 106 74)   # wood
       ];
+    in {
+      enable = true;
+      settings = {
+        logo = {
+          type = "kitty-direct";
+          source = ./modules/fastfetch/stray.png;
+          width = 24;
+          height = 12;
+          padding = { top = 1; left = 2; right = 3; };
+        };
+
+        display = {
+          separator = "  ";
+          color = {
+            keys = c.gold;
+            title = c.orange;
+            separator = c.wood;
+            output = c.cream;
+          };
+        };
+
+        modules = [
+          "title"
+          { type = "custom"; format = "┌──────────── System ────────────┐"; outputColor = c.wood; }
+          { type = "os";       key = " OS";     keyColor = c.orange; }
+          { type = "host";     key = "󰌢 Host";   keyColor = c.orange; }
+          { type = "kernel";   key = " Kernel"; keyColor = c.orange; }
+          { type = "uptime";   key = "󰅐 Uptime"; keyColor = c.orange; }
+          { type = "packages"; key = "󰏖 Pkgs";   keyColor = c.orange; }
+          { type = "custom"; format = "├──────────── Desktop ───────────┤"; outputColor = c.wood; }
+          { type = "wm";       key = " WM";     keyColor = c.green; }
+          { type = "shell";    key = " Shell";  keyColor = c.green; }
+          { type = "terminal"; key = " Term";   keyColor = c.green; }
+          { type = "custom"; format = "├──────────── Hardware ──────────┤"; outputColor = c.wood; }
+          { type = "cpu";      key = "󰻠 CPU";    keyColor = c.coral; }
+          { type = "gpu";      key = "󰢮 GPU";    keyColor = c.coral; }
+          { type = "memory";   key = "󰍛 RAM";    keyColor = c.coral; }
+          { type = "disk";     key = "󰋊 Disk";   keyColor = c.coral; }
+          { type = "custom"; format = "└────────────────────────────────┘"; outputColor = c.wood; }
+          "break"
+          { type = "media";    key = "󰝚 Playing"; keyColor = c.gold; }
+          "break"
+          { type = "custom"; format = palette; }
+        ];
+      };
     };
-  };
 
   xdg.mimeApps = {
     enable = true;
