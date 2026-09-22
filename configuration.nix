@@ -115,6 +115,8 @@
     ];
   };
 
+  programs.nix-ld.enable = true;
+
   programs.firefox.enable = true;
 
   programs.gnupg.agent = {

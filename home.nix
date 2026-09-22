@@ -214,6 +214,8 @@ in
       else
         fastfetch
       fi
+
+      export PATH="$HOME/.npm-global/bin:$PATH"
     '';
     shellAliases = {
       list-gens = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
