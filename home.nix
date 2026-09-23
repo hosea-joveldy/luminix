@@ -24,7 +24,6 @@ in
     chromium
     libreoffice-qt
     obsidian
-    ollama
     opencode
     syncthingtray
     zed-editor
@@ -32,6 +31,10 @@ in
 
     #game
     mindustry-wayland
+
+    # ai
+    (llama-cpp.override { vulkanSupport = true; })
+    vulkan-tools
   ];
 
   programs.fastfetch =
