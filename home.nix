@@ -22,7 +22,6 @@ in
     anki
     antigravity
     chromium
-    google-cloud-sdk
     libreoffice-qt
     obsidian
     opencode
