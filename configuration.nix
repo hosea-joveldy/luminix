@@ -152,11 +152,13 @@
     '')
 
     # dev related
+    cloudflared
     git
     nodejs
     php
     phpPackages.composer
     python314
+    ttyd
     uv
   ];
 
