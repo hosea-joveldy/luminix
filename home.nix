@@ -21,6 +21,7 @@ in
   home.packages = with pkgs; [
     anki
     antigravity
+    chatgpt
     chromium
     libreoffice-qt
     obsidian
