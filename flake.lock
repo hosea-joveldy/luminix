@@ -1,5 +1,23 @@
 {
   "nodes": {
+    "chatgpt-desktop": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1790408598,
+        "narHash": "sha256-ZHV+epZ+m+tNwmPqJR8l4ILqqWk5vbBoRYlldo9q7UE=",
+        "owner": "danielbodart",
+        "repo": "chatgpt-desktop",
+        "rev": "65a2ced2525c0453b21b821f2e7693d14a2b6604",
+        "type": "github"
+      },
+      "original": {
+        "owner": "danielbodart",
+        "repo": "chatgpt-desktop",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -23,6 +41,22 @@
     },
     "nixpkgs": {
       "locked": {
+        "lastModified": 1789684949,
+        "narHash": "sha256-ZKhUe/2IJUq1JhKxKMu8rbkgSGmPP2ZCqlIPn40aGCM=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "e554fab72f81915600f3f449b786fd9af40439a5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
         "lastModified": 1790450978,
         "narHash": "sha256-/eLCD/X9kaWJqPR47+fDozEC87Hjmm3i8gJbYmDAD7g=",
         "owner": "nixos",
@@ -37,7 +71,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_2": {
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1790463110,
         "narHash": "sha256-VZHcT2wKLkApBCACQ2SH4P1jVZUbbOA7jWAGi1MIViw=",
@@ -75,15 +109,16 @@
     },
     "root": {
       "inputs": {
+        "chatgpt-desktop": "chatgpt-desktop",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "plasma": "plasma",
         "spicetify-nix": "spicetify-nix"
       }
     },
     "spicetify-nix": {
       "inputs": {
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs_3",
         "systems": "systems"
       },
       "locked": {

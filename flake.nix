@@ -13,9 +13,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+    chatgpt-desktop.url = "github:danielbodart/chatgpt-desktop";
   };
 
-  outputs = { self, nixpkgs, home-manager, spicetify-nix, plasma, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, spicetify-nix, plasma, chatgpt-desktop, ... }@inputs:
   {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -31,6 +32,14 @@
           home-manager.sharedModules = [
             plasma.homeModules.plasma-manager
           ];
+        }
+
+        chatgpt-desktop.nixosModules.default
+        {
+          programs.chatgpt-desktop = {
+            enable = true;
+            primaryRuntime.enable = true;
+          };
         }
       ];
     };
