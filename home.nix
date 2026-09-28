@@ -24,7 +24,6 @@ in
     chromium
     libreoffice-qt
     obsidian
-    opencode
     syncthingtray
     zed-editor
     zoom-us
