@@ -20,6 +20,7 @@ in
 
   home.packages = with pkgs; [
     anki
+    antigravity
     arduino-ide
     chromium
     libreoffice-qt
