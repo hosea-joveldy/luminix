@@ -1,8 +1,7 @@
-{ config, pkgs, spicetify-nix, ... }:
+{ config, pkgs, spicetify-nix, inputs, ... }:
 
 let
   spicePkgs = spicetify-nix.legacyPackages.${pkgs.system};
-  antigravity-nix = inputs.antigravity-nix.packages.${pkgs.system}.default;
 in
 {
   imports = [ spicetify-nix.homeManagerModules.default ];
@@ -21,7 +20,6 @@ in
 
   home.packages = with pkgs; [
     anki
-    antigravity-nix
     arduino-ide
     chromium
     libreoffice-qt
@@ -36,6 +34,8 @@ in
     # ai
     (llama-cpp.override { vulkanSupport = true; })
     vulkan-tools
+  ]) ++ [
+    inputs.antigravity-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   programs.fastfetch =

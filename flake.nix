@@ -17,7 +17,7 @@
     antigravity-nix.url = "github:jacopone/antigravity-nix";
   };
 
-  outputs = { self, nixpkgs, home-manager, spicetify-nix, plasma, chatgpt-desktop, antigravity-nix, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, spicetify-nix, plasma, chatgpt-desktop, ... }@inputs:
   {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
