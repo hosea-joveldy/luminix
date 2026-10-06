@@ -2,6 +2,7 @@
 
 let
   spicePkgs = spicetify-nix.legacyPackages.${pkgs.system};
+  antigravity-nix = inputs.antigravity-nix.packages.${pkgs.system}.default;
 in
 {
   imports = [ spicetify-nix.homeManagerModules.default ];
@@ -20,7 +21,7 @@ in
 
   home.packages = with pkgs; [
     anki
-    antigravity
+    antigravity-nix
     arduino-ide
     chromium
     libreoffice-qt

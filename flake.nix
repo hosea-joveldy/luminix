@@ -14,9 +14,10 @@
       inputs.home-manager.follows = "home-manager";
     };
     chatgpt-desktop.url = "github:danielbodart/chatgpt-desktop";
+    antigravity-nix.url = "github:jacopone/antigravity-nix";
   };
 
-  outputs = { self, nixpkgs, home-manager, spicetify-nix, plasma, chatgpt-desktop, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, spicetify-nix, plasma, chatgpt-desktop, antigravity-nix, ... }@inputs:
   {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
