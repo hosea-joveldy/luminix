@@ -25,6 +25,7 @@ in
     libreoffice-qt
     obsidian
     syncthingtray
+    tor-browser
     zed-editor
     zoom-us
 
