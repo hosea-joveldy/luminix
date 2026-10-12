@@ -18,7 +18,7 @@ in
     zed = "zeditor";
   };
 
-  home.packages = with pkgs; [
+  home.packages = (with pkgs; [
     anki
     arduino-ide
     chromium
