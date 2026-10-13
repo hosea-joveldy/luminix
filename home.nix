@@ -22,9 +22,11 @@ in
     anki
     arduino-ide
     chromium
+    firefox
     libreoffice-qt
     obsidian
     syncthingtray
+    thunderbird
     tor-browser
     zed-editor
     zoom-us
@@ -157,8 +159,6 @@ in
       "colors"
     ];
   };
-
-  programs.firefox.enable = true;
 
   programs.spicetify = {
     enable = true;
