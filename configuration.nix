@@ -117,8 +117,6 @@
 
   programs.nix-ld.enable = true;
 
-  programs.firefox.enable = true;
-
   programs.gnupg.agent = {
     enable = true;
     pinentryPackage = pkgs.pinentry-curses;

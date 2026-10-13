@@ -158,15 +158,11 @@ in
     ];
   };
 
+  programs.firefox.enable = true;
+
   programs.spicetify = {
     enable = true;
-    theme = spicePkgs.themes.hazy // {
-      additionalCss = ''
-        .Root__top-container::before {
-          display: none !important;
-        }
-      '';
-    };
+    theme = spicePkgs.themes.hazy;
     enabledExtensions = with spicePkgs.extensions; [
       adblock
       hidePodcasts
