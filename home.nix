@@ -220,7 +220,7 @@ in
     '';
     shellAliases = {
       list-gens = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
-      nix-build = "sudo nixos-rebuild switch --flake /etc/nixos#nixos";
+      nob = "sudo nixos-rebuild switch --flake /etc/nixos#nixos";
     };
   };
 
