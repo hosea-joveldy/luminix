@@ -19,6 +19,22 @@
         "type": "github"
       }
     },
+    "arkenfox-userjs": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1788925726,
+        "narHash": "sha256-ykWxZZlwhdyLoP3+TDh90HRJJ2ekg4Ve1PTCTgwtzKE=",
+        "owner": "arkenfox",
+        "repo": "user.js",
+        "rev": "fb56d7bb4ed07898c9d94ca7ecc89697dd88cc3c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "arkenfox",
+        "repo": "user.js",
+        "type": "github"
+      }
+    },
     "chatgpt-desktop": {
       "inputs": {
         "nixpkgs": "nixpkgs_2"
@@ -163,6 +179,7 @@
     "root": {
       "inputs": {
         "antigravity-nix": "antigravity-nix",
+        "arkenfox-userjs": "arkenfox-userjs",
         "chatgpt-desktop": "chatgpt-desktop",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs_3",
