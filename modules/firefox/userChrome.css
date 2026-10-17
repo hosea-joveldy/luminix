@@ -1,3 +1,166 @@
 .titlebar-buttonbox-container {
   display: none !important;
 }
+
+/*
+ * userChrome.css — made to sit around hosea-joveldy/newtab-ext
+ * (dark space scene, monospace-ish minimal UI, clock + search boxes).
+ */
+
+:root {
+  --nt-bg: #0b0d12; /* page background (deep space) */
+  --nt-surface: #141821; /* raised bits: urlbar, selected tab */
+  --nt-surface-2: #1b2030; /* hover / focus */
+  --nt-border: #232a3a;
+  --nt-fg: #d7dce8;
+  --nt-fg-dim: #7d869c;
+  --nt-accent: #7aa2f7; /* focus ring / active tab line */
+
+  --nt-radius: 8px;
+
+  /* Firefox's own theme variables */
+  --toolbar-bgcolor: var(--nt-bg) !important;
+  --toolbar-color: var(--nt-fg) !important;
+  --lwt-accent-color: var(--nt-bg) !important;
+  --lwt-text-color: var(--nt-fg) !important;
+  --toolbarbutton-icon-fill: var(--nt-fg-dim) !important;
+  --arrowpanel-background: var(--nt-surface) !important;
+  --arrowpanel-color: var(--nt-fg) !important;
+  --arrowpanel-border-color: var(--nt-border) !important;
+
+  /* sidebar / vertical tabs */
+  --sidebar-background-color: var(--nt-bg) !important;
+  --sidebar-text-color: var(--nt-fg) !important;
+  --sidebar-border-color: var(--nt-border) !important;
+  --tab-selected-bgcolor: var(--nt-surface) !important;
+  --tab-selected-textcolor: var(--nt-fg) !important;
+}
+
+#navigator-toolbox,
+#nav-bar,
+#TabsToolbar,
+#PersonalToolbar,
+toolbar {
+  background: var(--nt-bg) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+#navigator-toolbox::after {
+  display: none !important;
+} /* hairline under toolbars */
+
+.tab-background {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: var(--nt-radius) !important;
+  margin-block: 4px !important;
+}
+
+.tabbrowser-tab:hover:not([selected]) .tab-background {
+  background: var(--nt-surface) !important;
+}
+
+.tabbrowser-tab[selected] .tab-background {
+  background: var(--nt-surface) !important;
+  outline: 1px solid var(--nt-border) !important;
+  outline-offset: -1px;
+}
+
+.tabbrowser-tab[selected] .tab-background::after {
+  content: "";
+  position: absolute;
+  inset: auto 14px 0 14px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--nt-accent);
+  opacity: 0.8;
+}
+
+.tab-label {
+  color: var(--nt-fg-dim) !important;
+}
+.tabbrowser-tab[selected] .tab-label {
+  color: var(--nt-fg) !important;
+}
+
+#alltabs-button,
+#tabbrowser-arrowscrollbox-periphery .tabs-newtab-button {
+  opacity: 0.5;
+}
+#tabbrowser-arrowscrollbox-periphery .tabs-newtab-button:hover {
+  opacity: 1;
+}
+
+#urlbar-background {
+  background: var(--nt-surface) !important;
+  border: 1px solid var(--nt-border) !important;
+  border-radius: var(--nt-radius) !important;
+  box-shadow: none !important;
+}
+
+#urlbar[focused] #urlbar-background,
+#urlbar[open] #urlbar-background {
+  background: var(--nt-surface-2) !important;
+  border-color: var(--nt-accent) !important;
+}
+
+#urlbar-input,
+#urlbar .urlbarView {
+  color: var(--nt-fg) !important;
+}
+
+#urlbar .urlbarView-row[selected] {
+  background: var(--nt-surface-2) !important;
+}
+
+#urlbar:not([focused]) #urlbar-input {
+  text-align: center;
+}
+
+#identity-box,
+#tracking-protection-icon-container {
+  opacity: 0.7;
+}
+#urlbar:not(:hover):not([focused]) #page-action-buttons {
+  opacity: 0;
+}
+
+.toolbarbutton-1 {
+  border-radius: var(--nt-radius) !important;
+}
+.toolbarbutton-1:hover:not([disabled]) > .toolbarbutton-icon,
+.toolbarbutton-1:hover:not([disabled]) > .toolbarbutton-badge-stack {
+  background: var(--nt-surface) !important;
+}
+
+#sidebar-main,
+#sidebar-box,
+#sidebar-header,
+#sidebar-splitter,
+#tabbrowser-arrowscrollbox,
+#vertical-tabs,
+#vertical-pinned-tabs-container {
+  background: var(--nt-bg) !important;
+  color: var(--nt-fg) !important;
+  border-color: var(--nt-border) !important;
+}
+
+#sidebar-splitter {
+  background: var(--nt-border) !important;
+  opacity: 0.5;
+}
+
+menupopup,
+panel {
+  --panel-background: var(--nt-surface) !important;
+  --panel-color: var(--nt-fg) !important;
+  --panel-border-color: var(--nt-border) !important;
+}
+
+#tabbrowser-tabpanels,
+#browser,
+#appcontent {
+  background: var(--nt-bg) !important;
+}
