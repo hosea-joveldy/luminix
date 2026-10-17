@@ -38,6 +38,27 @@ in
     vulkan-tools
   ]) ++ [
     inputs.antigravity-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
+
+    (pkgs.writeShellApplication {
+      name = "sign-newtab";
+      runtimeInputs = [ pkgs.web-ext pkgs.jq ];
+      excludeShellChecks = [ "SC1091" ];
+      text = ''
+        set -a
+        source "$HOME/.secrets/newtab-ext.env"
+        set +a
+
+        cd "$HOME/lab/projects/newtab-ext"
+
+        jq '.version |= (split(".") | .[-1] |= ((tonumber) + 1 | tostring) | join("."))' \
+          manifest.json > manifest.tmp && mv manifest.tmp manifest.json
+
+        web-ext sign --channel=unlisted \
+          --api-key="$WEB_EXT_API_KEY" \
+          --api-secret="$WEB_EXT_API_SECRET" \
+          --artifacts-dir "$HOME/lab/newtab-signed"
+      '';
+    })
   ];
 
   xdg.mimeApps = {
@@ -52,7 +73,10 @@ in
       "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = "libreoffice-calc.desktop";
     };
   };
+
   xdg.configFile."mimeapps.list".force = true;
+  home.file.".config/mozilla/firefox/3eoiozxq.default-1789488385411/chrome/userChrome.css".force = true;
+  home.file.".config/mozilla/firefox/3eoiozxq.default-1789488385411/chrome/userContent.css".force = true;
 
   xdg.dataFile."plasma/desktoptheme/Glassy".source = ./modules/plasma-theme/Glassy;
   xdg.dataFile."plasma/look-and-feel/GlassDark/contents/splash/Splash.qml".source = ./modules/splash/Splash.qml;
