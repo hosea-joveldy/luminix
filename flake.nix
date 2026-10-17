@@ -21,7 +21,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, spicetify-nix, plasma, chatgpt-desktop, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, plasma, chatgpt-desktop, ... }@inputs:
   {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -33,7 +33,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.lumi = import ./home.nix;
-          home-manager.extraSpecialArgs = { inherit spicetify-nix inputs; };
+          home-manager.extraSpecialArgs = { inherit inputs; };
           home-manager.sharedModules = [
             plasma.homeModules.plasma-manager
           ];

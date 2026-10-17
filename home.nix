@@ -1,10 +1,10 @@
-{ config, pkgs, spicetify-nix, inputs, ... }:
+{ config, pkgs, inputs, ... }:
 
 let
-  spicePkgs = spicetify-nix.legacyPackages.${pkgs.system};
+  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
 in
 {
-  imports = [ spicetify-nix.homeManagerModules.default ];
+  imports = [ inputs.spicetify-nix.homeManagerModules.default ];
 
   home.username = "lumi";
   home.homeDirectory = "/home/lumi";
