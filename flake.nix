@@ -15,6 +15,10 @@
     };
     chatgpt-desktop.url = "github:danielbodart/chatgpt-desktop";
     antigravity-nix.url = "github:jacopone/antigravity-nix";
+    arkenfox-userjs = {
+      url = "github:arkenfox/user.js";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, spicetify-nix, plasma, chatgpt-desktop, ... }@inputs:

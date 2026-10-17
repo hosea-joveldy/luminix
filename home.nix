@@ -22,7 +22,6 @@ in
     anki
     arduino-ide
     chromium
-    firefox
     libreoffice-qt
     obsidian
     syncthingtray
@@ -40,6 +39,98 @@ in
   ]) ++ [
     inputs.antigravity-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
+
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "application/x-terminal-emulator" = "kitty.desktop";
+      "text/html" = "firefox.desktop";
+      "x-scheme-handler/http" = "firefox.desktop";
+      "x-scheme-handler/https" = "firefox.desktop";
+      "x-scheme-handler/about" = "firefox.desktop";
+      "x-scheme-handler/unknown" = "firefox.desktop";
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = "libreoffice-calc.desktop";
+    };
+  };
+
+  xdg.dataFile."plasma/desktoptheme/Glassy".source = ./modules/plasma-theme/Glassy;
+  xdg.dataFile."plasma/look-and-feel/GlassDark/contents/splash/Splash.qml".source = ./modules/splash/Splash.qml;
+  xdg.dataFile."plasma/look-and-feel/GlassDark/contents/splash/images/nix-snowflake.svg".source = ./modules/splash/images/nix-snowflake.svg;
+  xdg.dataFile."plasma/look-and-feel/GlassDark/metadata.json".source = ./modules/splash/metadata.json;
+
+  xdg.configFile."fastfetch/zed.jsonc".text = builtins.toJSON {
+    logo = {
+      source = "nixos";
+      padding = {
+        right = 3;
+      };
+    };
+    display = {
+      size = {
+        binaryPrefix = "jedec";
+      };
+    };
+    modules = [
+      "title"
+      "break"
+      "separator"
+      "break"
+      "os"
+      "host"
+      "kernel"
+      "shell"
+      "wm"
+      "terminal"
+      "cpu"
+      "memory"
+      "break"
+      "colors"
+    ];
+  };
+
+  programs.bash = {
+    enable = true;
+    bashrcExtra = ''
+      if [ "$TERM_PROGRAM" = "zed" ]; then
+        fastfetch -c zed
+      else
+        fastfetch
+      fi
+
+      export PATH="$HOME/.npm-global/bin:$PATH"
+    '';
+    shellAliases = {
+      list-gens = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
+      nob = "sudo nixos-rebuild switch --flake /etc/nixos#nixos";
+    };
+  };
+
+  programs.cava = {
+    enable = true;
+    settings = {
+      general = {
+        bars = 20;
+        framerate = 60;
+        sensitivity = 100;
+      };
+      input = {
+        method = "pipewire";
+      };
+      output = {
+        method = "ncurses";
+      };
+      color = {
+        gradient = 1;
+        gradient_count = 3;
+        gradient_color_1 = "'#a7c080'";
+        gradient_color_2 = "'#dbbc7f'";
+        gradient_color_3 = "'#e67e80'";
+      };
+      smoothing = {
+        noise_reduction = 50;
+      };
+    };
+  };
 
   programs.fastfetch =
     let
@@ -118,52 +209,21 @@ in
       };
     };
 
-  xdg.mimeApps = {
+  programs.firefox = {
     enable = true;
-    defaultApplications = {
-      "application/x-terminal-emulator" = "kitty.desktop";
-      "text/html" = "firefox.desktop";
-      "x-scheme-handler/http" = "firefox.desktop";
-      "x-scheme-handler/https" = "firefox.desktop";
-      "x-scheme-handler/about" = "firefox.desktop";
-      "x-scheme-handler/unknown" = "firefox.desktop";
-      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = "libreoffice-calc.desktop";
-    };
-  };
+    profiles.default = {
+      id = 0;
+      isDefault = true;
+      path = "3eoiozxq.default-1789488385411";
 
-  xdg.dataFile."plasma/desktoptheme/Glassy".source = ./modules/plasma-theme/Glassy;
-  xdg.dataFile."plasma/look-and-feel/GlassDark/contents/splash/Splash.qml".source = ./modules/splash/Splash.qml;
-  xdg.dataFile."plasma/look-and-feel/GlassDark/contents/splash/images/nix-snowflake.svg".source = ./modules/splash/images/nix-snowflake.svg;
-  xdg.dataFile."plasma/look-and-feel/GlassDark/metadata.json".source = ./modules/splash/metadata.json;
+      extraConfig =
+        builtins.readFile "${inputs.arkenfox-userjs}/user.js"
+        + "\n"
+        + builtins.readFile ./modules/firefox/user-overrides.js;
 
-  xdg.configFile."fastfetch/zed.jsonc".text = builtins.toJSON {
-    logo = {
-      source = "nixos";
-      padding = {
-        right = 3;
-      };
+      userChrome = builtins.readFile ./modules/firefox/userChrome.css;
+      userContent = builtins.readFile ./modules/firefox/userContent.css;
     };
-    display = {
-      size = {
-        binaryPrefix = "jedec";
-      };
-    };
-    modules = [
-      "title"
-      "break"
-      "separator"
-      "break"
-      "os"
-      "host"
-      "kernel"
-      "shell"
-      "wm"
-      "terminal"
-      "cpu"
-      "memory"
-      "break"
-      "colors"
-    ];
   };
 
   programs.spicetify = {
@@ -174,6 +234,7 @@ in
       hidePodcasts
     ];
   };
+
   programs.kitty = {
     enable = true;
     settings = {
@@ -184,50 +245,6 @@ in
       window_padding_width = "32";
     };
     extraConfig = builtins.readFile ./modules/kitty-theme.conf;
-  };
-
-  programs.cava = {
-    enable = true;
-    settings = {
-      general = {
-        bars = 20;
-        framerate = 60;
-        sensitivity = 100;
-      };
-      input = {
-        method = "pipewire";
-      };
-      output = {
-        method = "ncurses";
-      };
-      color = {
-        gradient = 1;
-        gradient_count = 3;
-        gradient_color_1 = "'#a7c080'";
-        gradient_color_2 = "'#dbbc7f'";
-        gradient_color_3 = "'#e67e80'";
-      };
-      smoothing = {
-        noise_reduction = 50;
-      };
-    };
-  };
-
-  programs.bash = {
-    enable = true;
-    bashrcExtra = ''
-      if [ "$TERM_PROGRAM" = "zed" ]; then
-        fastfetch -c zed
-      else
-        fastfetch
-      fi
-
-      export PATH="$HOME/.npm-global/bin:$PATH"
-    '';
-    shellAliases = {
-      list-gens = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
-      nob = "sudo nixos-rebuild switch --flake /etc/nixos#nixos";
-    };
   };
 
   programs.plasma = {
