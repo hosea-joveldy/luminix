@@ -40,7 +40,7 @@ in
     inputs.antigravity-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     (pkgs.writeShellApplication {
-      name = "sign-newtab";
+      name = "sign-lumitab";
       runtimeInputs = [ pkgs.web-ext pkgs.jq ];
       excludeShellChecks = [ "SC1091" ];
       text = ''
