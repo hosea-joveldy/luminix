@@ -45,10 +45,10 @@ in
       excludeShellChecks = [ "SC1091" ];
       text = ''
         set -a
-        source "$HOME/.secrets/newtab-ext.env"
+        source "$HOME/.secrets/lumitab.env"
         set +a
 
-        cd "$HOME/lab/projects/newtab"
+        cd "$HOME/lab/projects/lumitab"
 
         jq '.version |= (split(".") | .[-1] |= ((tonumber) + 1 | tostring) | join("."))' \
           manifest.json > manifest.tmp && mv manifest.tmp manifest.json
@@ -56,7 +56,7 @@ in
         web-ext sign --channel=unlisted \
           --api-key="$WEB_EXT_API_KEY" \
           --api-secret="$WEB_EXT_API_SECRET" \
-          --artifacts-dir "$HOME/lab/newtab-signed"
+          --artifacts-dir "$HOME/lab/lumitab-signed"
       '';
     })
   ];
