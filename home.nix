@@ -4,7 +4,9 @@ let
   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
 in
 {
-  imports = [ inputs.spicetify-nix.homeManagerModules.default ];
+  imports = [
+    inputs.spicetify-nix.homeManagerModules.default
+  ];
 
   home.username = "lumi";
   home.homeDirectory = "/home/lumi";
@@ -38,6 +40,7 @@ in
     vulkan-tools
   ]) ++ [
     inputs.antigravity-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.caelestia-shell.packages.${pkgs.stdenv.hostPlatform.system}.with-cli
 
     (pkgs.writeShellApplication {
       name = "sign-lumitab";
@@ -93,15 +96,6 @@ in
     };
   };
 
-  xdg.configFile."mimeapps.list".force = true;
-  home.file.".config/mozilla/firefox/3eoiozxq.default-1789488385411/chrome/userChrome.css".force = true;
-  home.file.".config/mozilla/firefox/3eoiozxq.default-1789488385411/chrome/userContent.css".force = true;
-
-  xdg.dataFile."plasma/desktoptheme/Glassy".source = ./modules/plasma-theme/Glassy;
-  xdg.dataFile."plasma/look-and-feel/GlassDark/contents/splash/Splash.qml".source = ./modules/splash/Splash.qml;
-  xdg.dataFile."plasma/look-and-feel/GlassDark/contents/splash/images/nix-snowflake.svg".source = ./modules/splash/images/nix-snowflake.svg;
-  xdg.dataFile."plasma/look-and-feel/GlassDark/metadata.json".source = ./modules/splash/metadata.json;
-
   xdg.configFile."fastfetch/zed.jsonc".text = builtins.toJSON {
     logo = {
       source = "nixos";
@@ -131,6 +125,20 @@ in
       "colors"
     ];
   };
+  xdg.configFile."hypr/hyprland.lua" = {
+    source = ./modules/hyprland/hyprland.lua;
+    force = true;
+  };
+  xdg.configFile."mimeapps.list".force = true;
+
+  home.file.".config/mozilla/firefox/3eoiozxq.default-1789488385411/chrome/userChrome.css".force = true;
+  home.file.".config/mozilla/firefox/3eoiozxq.default-1789488385411/chrome/userContent.css".force = true;
+
+  xdg.dataFile."plasma/desktoptheme/Glassy".source = ./modules/plasma-theme/Glassy;
+  xdg.dataFile."plasma/look-and-feel/GlassDark/contents/splash/Splash.qml".source = ./modules/splash/Splash.qml;
+  xdg.dataFile."plasma/look-and-feel/GlassDark/contents/splash/images/nix-snowflake.svg".source = ./modules/splash/images/nix-snowflake.svg;
+  xdg.dataFile."plasma/look-and-feel/GlassDark/metadata.json".source = ./modules/splash/metadata.json;
+
 
   programs.bash = {
     enable = true;
@@ -269,6 +277,8 @@ in
       userContent = builtins.readFile ./modules/firefox/userContent.css;
     };
   };
+
+  programs.caelestia
 
   programs.spicetify = {
     enable = true;
