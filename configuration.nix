@@ -66,6 +66,10 @@
   services.xserver.enable = true;
 
   services.displayManager.sddm.enable = true;
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+  };
   services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
