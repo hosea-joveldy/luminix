@@ -278,8 +278,6 @@ in
     };
   };
 
-  programs.caelestia
-
   programs.spicetify = {
     enable = true;
     theme = spicePkgs.themes.hazy;
