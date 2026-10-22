@@ -51,8 +51,6 @@ in
         source "$HOME/.secrets/lumitab.env"
         set +a
 
-        cd "$HOME/lab/projects/lumitab"
-
         jq '.version |= (split(".") | .[-1] |= ((tonumber) + 1 | tostring) | join("."))' \
           manifest.json > manifest.tmp && mv manifest.tmp manifest.json
 
