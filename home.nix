@@ -70,10 +70,6 @@ in
     })
   ];
 
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-  ];
-
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
