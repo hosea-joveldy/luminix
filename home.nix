@@ -20,6 +20,8 @@ in
     zed = "zeditor";
   };
 
+  fonts.fontconfig.enable = true;
+
   home.packages = (with pkgs; [
     anki
     arduino-ide
@@ -31,6 +33,12 @@ in
     tor-browser
     zed-editor
     zoom-us
+
+    # fonts
+    nerd-fonts.jetbrains-mono
+    eb-garamond
+    libre-baskerville
+    (google-fonts.override { fonts = [ "SpecialElite" "BebasNeue" ]; })
 
     #game
     mindustry-wayland
@@ -60,6 +68,10 @@ in
           --artifacts-dir "$HOME/lab/lumitab-signed"
       '';
     })
+  ];
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
   ];
 
   xdg.mimeApps = {

@@ -175,10 +175,6 @@
     kwalletmanager
   ];
 
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-  ];
-
   systemd.user.services.ydotoold = {
     description = "ydotool daemon";
     wantedBy = [ "default.target" ];
