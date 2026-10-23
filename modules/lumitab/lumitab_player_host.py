@@ -10,7 +10,15 @@ import time
 import urllib.parse
 
 SEP = "\x1f"
-FORMAT = SEP.join(["{{status}}", "{{xesam:title}}", "{{xesam:artist}}", "{{mpris:artUrl}}", "{{playerName}}"])
+FORMAT = SEP.join(
+    [
+        "{{status}}",
+        "{{xesam:title}}",
+        "{{xesam:artist}}",
+        "{{mpris:artUrl}}",
+        "{{playerName}}",
+    ]
+)
 MAX_ART = 600_000
 POLL_SECONDS = 1.0
 
@@ -36,7 +44,9 @@ def art_data(url):
             if os.path.getsize(path) <= MAX_ART:
                 mime = mimetypes.guess_type(path)[0] or "image/jpeg"
                 with open(path, "rb") as f:
-                    result = f"data:{mime};base64," + base64.b64encode(f.read()).decode()
+                    result = (
+                        f"data:{mime};base64," + base64.b64encode(f.read()).decode()
+                    )
         except OSError:
             result = ""
     elif url.startswith(("https://", "data:")):
