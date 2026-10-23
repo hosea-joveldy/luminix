@@ -50,24 +50,7 @@ in
     inputs.antigravity-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.caelestia-shell.packages.${pkgs.stdenv.hostPlatform.system}.with-cli
 
-    (pkgs.writeShellApplication {
-      name = "sign-lumitab";
-      runtimeInputs = [ pkgs.web-ext pkgs.jq ];
-      excludeShellChecks = [ "SC1091" ];
-      text = ''
-        set -a
-        source "$HOME/.secrets/lumitab.env"
-        set +a
-
-        jq '.version |= (split(".") | .[-1] |= ((tonumber) + 1 | tostring) | join("."))' \
-          manifest.json > manifest.tmp && mv manifest.tmp manifest.json
-
-        web-ext sign --channel=unlisted \
-          --api-key="$WEB_EXT_API_KEY" \
-          --api-secret="$WEB_EXT_API_SECRET" \
-          --artifacts-dir "$HOME/lab/lumitab-signed"
-      '';
-    })
+    (pkgs.callPackage ./modules/lumitab/sign.nix { })
   ];
 
   xdg.mimeApps = {
@@ -281,6 +264,10 @@ in
 
       userChrome = builtins.readFile ./modules/firefox/userChrome.css;
       userContent = builtins.readFile ./modules/firefox/userContent.css;
+
+      nativeMessagingHosts = [
+        (pkgs.callPackage ./modules/lumitab/native-host.nix { })
+      ];
     };
   };
 
