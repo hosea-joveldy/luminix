@@ -24,7 +24,6 @@ in
 
   home.packages = (with pkgs; [
     anki
-    arduino-ide
     chromium
     libreoffice-qt
     obsidian
