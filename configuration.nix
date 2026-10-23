@@ -184,7 +184,7 @@
   systemd.user.services.fusuma = {
     description = "fusuma gesture daemon";
     wantedBy = [ "default.target" ];
-    serviceConfig.ExecStart = "${pkgs.fusuma}/bin/fusuma";
+    serviceConfig.ExecStart = "${pkgs.fusuma}/bin/fusuma -c ${./modules/fusuma/config.yml}";
   };
 
   services.pipewire.wireplumber.extraConfig."51-priority" = {
