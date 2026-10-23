@@ -252,6 +252,9 @@ in
 
   programs.firefox = {
     enable = true;
+    nativeMessagingHosts = [
+      (pkgs.callPackage ./modules/lumitab/native-host.nix { })
+    ];
     profiles.default = {
       id = 0;
       isDefault = true;
@@ -264,10 +267,6 @@ in
 
       userChrome = builtins.readFile ./modules/firefox/userChrome.css;
       userContent = builtins.readFile ./modules/firefox/userContent.css;
-
-      nativeMessagingHosts = [
-        (pkgs.callPackage ./modules/lumitab/native-host.nix { })
-      ];
     };
   };
 
