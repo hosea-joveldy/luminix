@@ -10,15 +10,7 @@ import time
 import urllib.parse
 
 SEP = "\x1f"
-FORMAT = SEP.join(
-    [
-        "{{status}}",
-        "{{xesam:title}}",
-        "{{xesam:artist}}",
-        "{{mpris:artUrl}}",
-        "{{playerName}}",
-    ]
-)
+FORMAT = SEP.join(["{{status}}", "{{xesam:title}}", "{{xesam:artist}}", "{{mpris:artUrl}}", "{{playerName}}", "{{position}}", "{{mpris:length}}"])
 MAX_ART = 600_000
 POLL_SECONDS = 1.0
 
@@ -44,15 +36,20 @@ def art_data(url):
             if os.path.getsize(path) <= MAX_ART:
                 mime = mimetypes.guess_type(path)[0] or "image/jpeg"
                 with open(path, "rb") as f:
-                    result = (
-                        f"data:{mime};base64," + base64.b64encode(f.read()).decode()
-                    )
+                    result = f"data:{mime};base64," + base64.b64encode(f.read()).decode()
         except OSError:
             result = ""
     elif url.startswith(("https://", "data:")):
         result = url if len(url) <= MAX_ART else ""
     _art_cache = (url, result)
     return result
+
+
+def to_int(v):
+    try:
+        return int(float(v))
+    except ValueError:
+        return 0
 
 
 def query():
@@ -68,10 +65,10 @@ def query():
     players = []
     for line in out.stdout.splitlines():
         parts = line.split(SEP)
-        if len(parts) == 5:
+        if len(parts) == 7:
             players.append(parts)
     for wanted in ("Playing", "Paused"):
-        for status, title, artist, art, name in players:
+        for status, title, artist, art, name, pos, length in players:
             if status == wanted:
                 return {
                     "active": True,
@@ -80,6 +77,8 @@ def query():
                     "artist": artist,
                     "art": art_data(art),
                     "player": name,
+                    "position": to_int(pos),
+                    "length": to_int(length),
                 }
     return {"active": False}
 
