@@ -253,7 +253,7 @@ in
   programs.firefox = {
     enable = true;
     nativeMessagingHosts = [
-      (pkgs.callPackage ./modules/lumitab/native-host.nix { })
+      (pkgs.callPackage ./modules/lumitab/lumitab-player.nix { })
     ];
     profiles.default = {
       id = 0;
