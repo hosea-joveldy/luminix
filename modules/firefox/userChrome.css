@@ -13,10 +13,10 @@
  */
 
 :root {
-  --nt-bg: #1e1e2e; /* same as the new tab page, so there is no seam */
-  --nt-fg: #cdd6f4;
-  --nt-accent: #cba6f7;
-  --nt-glow: 203, 166, 247; /* r, g, b of the accent glow */
+  --nt-bg: #2e3440; /* same as the new tab page, so there is no seam */
+  --nt-fg: #eceff4;
+  --nt-accent: #88c0d0;
+  --nt-glow: 136, 192, 208; /* r, g, b of the accent glow */
 
   --nt-fg-dim: color-mix(in srgb, var(--nt-fg) 60%, transparent);
   --nt-surface: color-mix(
