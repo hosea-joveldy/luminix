@@ -119,11 +119,11 @@ in
   };
   xdg.configFile."caelestia/shell.json" = {
     source = ./modules/caelestia/shell.json;
-    force = true
+    force = true;
   };
   xdg.configFile."caelestia/monitors/eDP-1/shell.json" = {
     source = ./modules/caelestia/monitors/eDP-1/shell.json;
-    force = true
+    force = true;
   };
   xdg.configFile."cava/config".force = true;
   xdg.configFile."mimeapps.list".force = true;
