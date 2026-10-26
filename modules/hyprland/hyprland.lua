@@ -369,7 +369,7 @@ hl.window_rule({
   float = true,
 })
 
-hl.window.rule({
+hl.window_rule({
   name = "opaque-exception",
   match = { class = "^(mpv|vlc)$" },
   opaque = true,
