@@ -118,8 +118,8 @@ hl.config({
     rounding_power   = 2,
 
     -- Change transparency of focused and unfocused windows
-    active_opacity   = 1.0,
-    inactive_opacity = 1.0,
+    active_opacity   = 0.75,
+    inactive_opacity = 0.60,
 
     shadow           = {
       enabled      = true,
@@ -130,8 +130,8 @@ hl.config({
 
     blur             = {
       enabled  = true,
-      size     = 3,
-      passes   = 1,
+      size     = 6,
+      passes   = 3,
       vibrancy = 0.1696,
     },
   },
@@ -368,3 +368,9 @@ hl.window_rule({
   move  = "20 monitor_h-120",
   float = true,
 })
+
+h1.window.rule({
+  name = "opaque-exception",
+  match = { class = "^(mpv|vlc)$" },
+  opaque = true
+});
