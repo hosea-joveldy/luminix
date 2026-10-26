@@ -1,35 +1,27 @@
+/* ------------------------------------------------------------
+   userChrome.css — auto-hiding glass toolbar, Caelestia-themed
+   Colors come from the active Firefox theme (CaelestiaFox);
+   the fallbacks below are only used if no theme provides them.
+   Needs: toolkit.legacyUserProfileCustomizations.stylesheets = true
+   ------------------------------------------------------------ */
+
 .titlebar-buttonbox-container {
   display: none !important;
 }
 
-/*
- * userChrome.css, styled to sit around lumitab glass
- * (Catppuccin Mocha by default: soft glows, frosted glass surfaces, thin bright rims).
- *
- * To follow another lumitab theme, swap the five colour variables below:
- *   Nord       bg #2e3440  fg #eceff4  accent #88c0d0  glow 136,192,208
- *   Gruvbox    bg #282828  fg #ebdbb2  accent #fabd2f  glow 254,128,25
- *   Everforest bg #2d353b  fg #d3c6aa  accent #a7c080  glow 167,192,128
- */
-
 :root {
-  --nt-bg: #2e3440; /* same as the new tab page, so there is no seam */
-  --nt-fg: #eceff4;
-  --nt-accent: #88c0d0;
-  --nt-glow: 136, 192, 208; /* r, g, b of the accent glow */
+  --nt-bg: #0e0e0e;
+  --nt-fg: #e6e6e6;
+  --nt-accent: #c7c7c7;
 
+  /* Derived from the above, so they follow the theme automatically */
   --nt-fg-dim: color-mix(in srgb, var(--nt-fg) 60%, transparent);
-  --nt-surface: color-mix(
-    in srgb,
-    white 6%,
-    var(--nt-bg)
-  ); /* opaque, for panels */
-  --nt-surface-2: color-mix(in srgb, white 11%, var(--nt-bg));
-  --nt-border: rgba(255, 255, 255, 0.12);
+  --nt-surface: color-mix(in srgb, var(--nt-bg) 90%, var(--nt-fg));
+  --nt-surface-2: color-mix(in srgb, var(--nt-bg) 82%, var(--nt-fg));
+  --nt-border: color-mix(in srgb, var(--nt-bg) 75%, var(--nt-fg));
 
   --nt-radius: 14px;
 
-  /* the lumitab "liquid glass" recipe */
   --nt-glass: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0.14),
@@ -46,20 +38,17 @@
     inset 1px 1px 1px -0.5px rgba(255, 255, 255, 0.5),
     inset -1px -1px 1px -0.5px rgba(255, 255, 255, 0.18);
 
-  /* Firefox's own theme variables */
+  /* Toolbar / panel variables (no --lwt-* overrides, so the theme still applies) */
   --toolbar-bgcolor: transparent !important;
   --toolbar-color: var(--nt-fg) !important;
   --toolbar-field-background-color: transparent !important;
   --toolbar-field-focus-background-color: transparent !important;
   --toolbar-field-color: var(--nt-fg) !important;
-  --lwt-accent-color: var(--nt-bg) !important;
-  --lwt-text-color: var(--nt-fg) !important;
   --toolbarbutton-icon-fill: var(--nt-fg-dim) !important;
   --arrowpanel-background: var(--nt-surface) !important;
   --arrowpanel-color: var(--nt-fg) !important;
   --arrowpanel-border-color: var(--nt-border) !important;
 
-  /* sidebar / vertical tabs */
   --sidebar-background-color: var(--nt-bg) !important;
   --sidebar-text-color: var(--nt-fg) !important;
   --sidebar-border-color: var(--nt-border) !important;
@@ -67,17 +56,16 @@
   --tab-selected-textcolor: var(--nt-fg) !important;
 }
 
-/* one soft glow across the chrome, like the glows behind the new tab */
+/* ---------- Toolbar (always visible) ---------- */
+
 #navigator-toolbox {
-  background:
-    radial-gradient(
-      circle at 22% 0%,
-      rgba(var(--nt-glow), 0.12),
-      transparent 55%
-    ),
-    var(--nt-bg) !important;
+  background: var(--nt-bg) !important; /* same solid color as the sidebar */
   border: none !important;
   box-shadow: none !important;
+}
+
+#navigator-toolbox::after {
+  display: none !important;
 }
 
 #nav-bar,
@@ -89,11 +77,8 @@ toolbar {
   box-shadow: none !important;
 }
 
-#navigator-toolbox::after {
-  display: none !important;
-} /* hairline under toolbars */
+/* ---------- Tabs ---------- */
 
-/* ---------- tabs ---------- */
 .tab-background {
   background: transparent !important;
   border: none !important;
@@ -141,7 +126,8 @@ toolbar {
   opacity: 1;
 }
 
-/* ---------- urlbar ---------- */
+/* ---------- URL bar ---------- */
+
 #urlbar-background {
   background: var(--nt-glass) !important;
   border: none !important;
@@ -157,7 +143,6 @@ toolbar {
     0 0 0 1px var(--nt-accent) !important;
 }
 
-/* the dropdown is a real panel, so give it an opaque glassy surface */
 #urlbar[open] > #urlbar-background {
   background-color: var(--nt-surface) !important;
 }
@@ -184,7 +169,8 @@ toolbar {
   opacity: 0;
 }
 
-/* ---------- toolbar buttons ---------- */
+/* ---------- Toolbar buttons ---------- */
+
 .toolbarbutton-1 {
   border-radius: var(--nt-radius) !important;
 }
@@ -194,15 +180,15 @@ toolbar {
   box-shadow: var(--nt-rim) !important;
 }
 
-/* ---------- sidebar / vertical tabs ---------- */
+/* ---------- Sidebar (solid, matches the toolbar) ---------- */
+
 #sidebar-main,
 #sidebar-box,
 #sidebar-header,
-#sidebar-splitter,
 #tabbrowser-arrowscrollbox,
 #vertical-tabs,
 #vertical-pinned-tabs-container {
-  background: transparent !important;
+  background: var(--nt-bg) !important;
   color: var(--nt-fg) !important;
   border-color: var(--nt-border) !important;
 }
@@ -212,7 +198,8 @@ toolbar {
   opacity: 0.5;
 }
 
-/* ---------- menus and panels ---------- */
+/* ---------- Menus / panels ---------- */
+
 menupopup,
 panel {
   --panel-background: var(--nt-surface) !important;
@@ -220,6 +207,8 @@ panel {
   --panel-border-color: var(--nt-border) !important;
   --panel-border-radius: var(--nt-radius) !important;
 }
+
+/* ---------- Content background ---------- */
 
 #tabbrowser-tabpanels,
 #browser,

@@ -55,7 +55,7 @@ local menu        = "hyprlauncher"
 
 hl.on("hyprland.start", function()
   hl.exec_cmd("caelestia shell -d")
-  hl.exec_cmd("caelestia scheme set -n dynamic -v vibrant")
+  hl.exec_cmd("caelestia scheme set -n dynamic")
   hl.exec_cmd("caelestia wallpaper -f @wallpaper@")
 end)
 
