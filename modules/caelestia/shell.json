@@ -1,10 +1,30 @@
 {
-    "appearance": {
-        "transparency": {
-            "enabled": true
-        }
+  "enabled": true,
+  "appearance": {
+    "font": {
+      "clock": "JetBrainsMono Nerd Font Mono",
+      "workspaces": "JetBrainsMono Nerd Font Mono",
+      "headline": { "family": "JetBrainsMono Nerd Font Mono" },
+      "title": { "family": "JetBrainsMono Nerd Font Mono" },
+      "body": { "family": "JetBrainsMono Nerd Font Mono" },
+      "label": { "family": "JetBrainsMono Nerd Font Mono" },
+      "mono": { "family": "JetBrainsMono Nerd Font Mono" }
     },
-    "services": {
-        "clockFormat": "TwentyFourHour"
+    "transparency": {
+      "enabled": true
+    },
+    "spacing": {
+      "scale": 1
+    },
+    "padding": {
+      "scale": 1
     }
+  },
+  "services": {
+    "clockFormat": "TwentyFourHour"
+  },
+  "bar": {
+    "persistent": false,
+    "showOnHover": true
+  }
 }
