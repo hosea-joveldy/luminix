@@ -47,7 +47,7 @@ in
     vulkan-tools
   ]) ++ [
     inputs.antigravity-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
-    inputs.caelestia-shell.packages.${pkgs.stdenv.hostPlatform.system}.with-cli
+    inputs.caelestia-cli.packages.${pkgs.stdenv.hostPlatform.system}.with-shell
 
     (pkgs.callPackage ./modules/lumitab/sign.nix { })
   ];
@@ -118,6 +118,7 @@ in
     force = true;
   };
   xdg.configFile."mimeapps.list".force = true;
+  xdg.configFile."cava/config".force = true;
 
   home.file.".config/mozilla/firefox/3eoiozxq.default-1789488385411/chrome/userChrome.css".force = true;
   home.file.".config/mozilla/firefox/3eoiozxq.default-1789488385411/chrome/userContent.css".force = true;
