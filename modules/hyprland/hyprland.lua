@@ -97,7 +97,7 @@ hl.config({
     gaps_in          = 5,
     gaps_out         = 20,
 
-    border_size      = 2,
+    border_size      = 0,
 
     col              = {
       active_border   = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 },
@@ -270,7 +270,7 @@ hl.bind(mainMod .. " + M",
   hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("caelestia shell drawers toggle launcher"))
+hl.bind(mainMod .. " + R", hl.dsp.global("caelestia:launcher"))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
 
