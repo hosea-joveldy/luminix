@@ -117,8 +117,16 @@ in
     source = ./modules/hyprland/hyprland.lua;
     force = true;
   };
-  xdg.configFile."mimeapps.list".force = true;
+  xdg.configFile."caelestia/shell.json" = {
+    source = ./modules/caelestia/shell.json;
+    force = true
+  };
+  xdg.configFile."caelestia/monitors/eDP-1/shell.json" = {
+    source = ./modules/caelestia/monitors/eDP-1/shell.json;
+    force = true
+  };
   xdg.configFile."cava/config".force = true;
+  xdg.configFile."mimeapps.list".force = true;
 
   home.file.".config/mozilla/firefox/3eoiozxq.default-1789488385411/chrome/userChrome.css".force = true;
   home.file.".config/mozilla/firefox/3eoiozxq.default-1789488385411/chrome/userContent.css".force = true;
