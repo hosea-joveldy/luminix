@@ -114,7 +114,12 @@ in
     ];
   };
   xdg.configFile."hypr/hyprland.lua" = {
-    source = ./modules/hyprland/hyprland.lua;
+    source = pkgs.writeText "hyprland.lua" (
+      builtins.replaceStrings
+        [ "@wallpaper@" ]
+        [ "${./assets/wallpapers/snowy-road.png}" ]
+        (builtins.readFile ./modules/hyprland/hyprland.lua)
+    );
     force = true;
   };
   xdg.configFile."caelestia/shell.json" = {
@@ -280,7 +285,13 @@ in
 
   programs.spicetify = {
     enable = true;
-    theme = spicePkgs.themes.hazy;
+    theme = spicePkgs.themes.hazy // {
+      additionalCss = ''
+        .Root__top-container::before {
+          display: none !important;
+        }
+      '';
+    };
     enabledExtensions = with spicePkgs.extensions; [
       adblock
       hidePodcasts
