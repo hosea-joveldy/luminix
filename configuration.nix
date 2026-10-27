@@ -224,6 +224,38 @@
     ];
   };
 
+  services.pipewire.extraConfig.pipewire."60-balance" = {
+    "context.modules" = [
+      {
+        name = "libpipewire-module-filter-chain";
+        args = {
+          "node.description" = "Earphone USB balanced";
+          "media.name" = "Earphone USB balanced";
+          "filter.graph" = {
+            nodes = [
+              { type = "builtin"; name = "gainL"; label = "linear"; control = { Mult = 1.0; Add = 0.0; }; }
+              { type = "builtin"; name = "gainR"; label = "linear"; control = { Mult = 0.125; Add = 0.0; }; }
+            ];
+            inputs = [ "gainL:In" "gainR:In" ];
+            outputs = [ "gainL:Out" "gainR:Out" ];
+          };
+          "audio.channels" = 2;
+          "audio.position" = [ "FL" "FR" ];
+          "capture.props" = {
+            "node.name" = "balanced_earphone";
+            "media.class" = "Audio/Sink";
+            "priority.session" = 1;
+          };
+          "playback.props" = {
+            "node.name" = "balanced_earphone_out";
+            "node.passive" = true;
+            "target.object" = "alsa_output.usb-Generic_AB13X_USB_Audio_20210726905926-00.analog-stereo";
+          };
+        };
+      }
+    ];
+  };
+
   services.syncthing = {
     enable = true;
     user = "lumi";
