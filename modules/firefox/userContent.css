@@ -1,1 +1,164 @@
-/* needed to insert a comment cause empty file doesn't get read */
+@-moz-document url-prefix("about:") {
+  :root {
+    --nt-bg: #0e0e0e;
+    --nt-fg: #e6e6e6;
+    --nt-accent: #fabd2f;
+    --nt-surface: color-mix(in srgb, var(--nt-bg) 90%, var(--nt-fg));
+    --nt-surface-2: color-mix(in srgb, var(--nt-bg) 82%, var(--nt-fg));
+    --nt-border: color-mix(in srgb, var(--nt-bg) 75%, var(--nt-fg));
+    --nt-fg-dim: color-mix(in srgb, var(--nt-fg) 60%, transparent);
+    --nt-radius: 14px;
+
+    --in-content-page-background: var(--nt-bg) !important;
+    --in-content-page-color: var(--nt-fg) !important;
+    --in-content-text-color: var(--nt-fg) !important;
+    --in-content-deemphasized-text: var(--nt-fg-dim) !important;
+    --in-content-box-background: var(--nt-surface) !important;
+    --in-content-box-background-hover: var(--nt-surface-2) !important;
+    --in-content-box-background-active: var(--nt-surface-2) !important;
+    --in-content-box-border-color: var(--nt-border) !important;
+    --in-content-border-color: var(--nt-border) !important;
+    --in-content-item-hover: var(--nt-surface-2) !important;
+    --in-content-item-selected: var(--nt-surface-2) !important;
+    --in-content-item-selected-text: var(--nt-fg) !important;
+    --in-content-accent-color: var(--nt-accent) !important;
+    --in-content-link-color: var(--nt-accent) !important;
+    --in-content-link-color-hover: var(--nt-accent) !important;
+    --in-content-primary-button-background: var(--nt-accent) !important;
+    --in-content-primary-button-background-hover: color-mix(
+      in srgb,
+      var(--nt-accent) 85%,
+      white
+    ) !important;
+    --in-content-primary-button-background-active: color-mix(
+      in srgb,
+      var(--nt-accent) 75%,
+      white
+    ) !important;
+    --in-content-primary-button-text-color: var(--nt-bg) !important;
+    --in-content-button-background: var(--nt-surface-2) !important;
+    --in-content-button-background-hover: var(--nt-border) !important;
+    --in-content-button-text-color: var(--nt-fg) !important;
+    --in-content-focus-outline-color: var(--nt-accent) !important;
+    --in-content-border-radius: var(--nt-radius) !important;
+
+    --newtab-background-color: var(--nt-bg) !important;
+    --newtab-background-color-secondary: var(--nt-surface) !important;
+    --newtab-text-primary-color: var(--nt-fg) !important;
+    --newtab-primary-action-background: var(--nt-accent) !important;
+    --newtab-border-color: var(--nt-border) !important;
+
+    --background-color-canvas: var(--nt-bg) !important;
+    --background-color-box: var(--nt-surface) !important;
+    --text-color: var(--nt-fg) !important;
+    --text-color-deemphasized: var(--nt-fg-dim) !important;
+    --border-color: var(--nt-border) !important;
+    --border-radius-medium: var(--nt-radius) !important;
+  }
+
+  html,
+  body {
+    background: var(--nt-bg) !important;
+    color: var(--nt-fg) !important;
+  }
+}
+
+@-moz-document url("about:newtab"), url("about:home") {
+  body {
+    background: var(--nt-bg) !important;
+  }
+
+  .search-wrapper .search-handoff-button,
+  .search-wrapper input {
+    background: var(--nt-surface) !important;
+    border-radius: var(--nt-radius) !important;
+    box-shadow: none !important;
+    color: var(--nt-fg) !important;
+  }
+
+  .search-wrapper .search-handoff-button:hover,
+  .search-wrapper input:focus {
+    background: var(--nt-surface-2) !important;
+    box-shadow: 0 0 0 1px var(--nt-accent) !important;
+  }
+
+  .top-site-outer:hover,
+  .top-site-outer:focus-within {
+    background: var(--nt-surface) !important;
+    border-radius: var(--nt-radius) !important;
+  }
+
+  .top-site-button .tile {
+    background: var(--nt-surface) !important;
+    border-radius: var(--nt-radius) !important;
+    box-shadow: none !important;
+  }
+
+  .card-outer,
+  .ds-card {
+    background: var(--nt-surface) !important;
+    border-radius: var(--nt-radius) !important;
+    box-shadow: none !important;
+  }
+
+  .section-title,
+  .title,
+  .ds-card .story-title {
+    color: var(--nt-fg) !important;
+  }
+}
+
+@-moz-document url("about:blank") {
+  html,
+  body {
+    background: var(--nt-bg) !important;
+  }
+}
+
+@-moz-document url-prefix("about:preferences") {
+  .category[selected],
+  .category:hover {
+    background: var(--nt-surface-2) !important;
+    border-radius: var(--nt-radius) !important;
+  }
+
+  groupbox,
+  .subcategory {
+    background: transparent !important;
+  }
+
+  button,
+  menulist,
+  input,
+  textarea {
+    border-radius: 10px !important;
+  }
+}
+
+@-moz-document url-prefix("about:addons") {
+  .card,
+  addon-card,
+  .addon.card {
+    background: var(--nt-surface) !important;
+    border-radius: var(--nt-radius) !important;
+    box-shadow: none !important;
+  }
+
+  #categories .category[selected],
+  #categories .category:hover {
+    background: var(--nt-surface-2) !important;
+    border-radius: var(--nt-radius) !important;
+  }
+}
+
+@-moz-document url-prefix("about:") {
+  * {
+    scrollbar-color: var(--nt-border) transparent;
+    scrollbar-width: thin;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--nt-accent) 35%, transparent);
+    color: var(--nt-fg);
+  }
+}

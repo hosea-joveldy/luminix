@@ -1,3 +1,5 @@
+@namespace html url("http://www.w3.org/1999/xhtml");
+
 .titlebar-buttonbox-container {
   display: none !important;
 }
@@ -105,6 +107,15 @@ toolbar {
   color: var(--nt-fg) !important;
 }
 
+.tab-close-button {
+  border-radius: 8px !important;
+  opacity: 0.6;
+}
+.tab-close-button:hover {
+  opacity: 1;
+  background: var(--nt-surface-2) !important;
+}
+
 #alltabs-button,
 #tabbrowser-arrowscrollbox-periphery .tabs-newtab-button {
   opacity: 0.5;
@@ -142,6 +153,19 @@ toolbar {
   border-radius: 10px !important;
 }
 
+.urlbarView-row:hover:not([selected]) {
+  background: var(--nt-surface) !important;
+  border-radius: 10px !important;
+}
+
+.urlbarView-title {
+  color: var(--nt-fg) !important;
+}
+
+.urlbarView-url {
+  color: var(--nt-accent) !important;
+}
+
 #urlbar:not([focused]) #urlbar-input {
   text-align: center;
 }
@@ -159,6 +183,20 @@ toolbar {
 }
 .toolbarbutton-1:hover:not([disabled]) > .toolbarbutton-icon,
 .toolbarbutton-1:hover:not([disabled]) > .toolbarbutton-badge-stack {
+  background: var(--nt-glass) !important;
+  box-shadow: var(--nt-rim) !important;
+}
+.toolbarbutton-1[open] > .toolbarbutton-icon,
+.toolbarbutton-1:active:not([disabled]) > .toolbarbutton-icon {
+  background: var(--nt-glass-hover) !important;
+  box-shadow: var(--nt-rim) !important;
+}
+
+.bookmark-item {
+  border-radius: 10px !important;
+  color: var(--nt-fg) !important;
+}
+.bookmark-item:hover:not([disabled]) {
   background: var(--nt-glass) !important;
   box-shadow: var(--nt-rim) !important;
 }
@@ -195,10 +233,234 @@ panel {
   --panel-color: var(--nt-fg) !important;
   --panel-border-color: var(--nt-border) !important;
   --panel-border-radius: var(--nt-radius) !important;
+  --panel-item-hover-bgcolor: var(--nt-surface-2) !important;
+  --panel-item-active-bgcolor: var(--nt-surface-2) !important;
+  --panel-separator-color: var(--nt-border) !important;
+}
+
+menupopup {
+  border-radius: var(--nt-radius) !important;
+  padding: 4px !important;
+}
+
+menuitem:hover,
+menu:hover {
+  background: var(--nt-surface-2) !important;
+  border-radius: 8px !important;
+}
+
+findbar {
+  background: var(--nt-surface) !important;
+  color: var(--nt-fg) !important;
+  border: none !important;
+}
+.findbar-textbox {
+  background: var(--nt-bg) !important;
+  color: var(--nt-fg) !important;
+  border-radius: 8px !important;
+}
+
+tooltip {
+  appearance: none !important;
+  background: var(--nt-surface) !important;
+  color: var(--nt-fg) !important;
+  border: 1px solid var(--nt-border) !important;
+  border-radius: 8px !important;
+}
+
+notification-message {
+  background: var(--nt-surface) !important;
+  color: var(--nt-fg) !important;
+  border-radius: var(--nt-radius) !important;
+}
+
+* {
+  scrollbar-color: var(--nt-border) transparent;
+  scrollbar-width: thin;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--nt-accent) 35%, transparent);
 }
 
 #tabbrowser-tabpanels,
 #browser,
 #appcontent {
   background: var(--nt-bg) !important;
+}
+
+:root[privatebrowsingmode="temporary"] {
+  --nt-accent: #d3869b;
+}
+
+.tabbrowser-tab[pinned] .tab-background {
+  background: var(--nt-surface) !important;
+}
+
+.tab-icon-overlay {
+  border-radius: 8px !important;
+  background: var(--nt-surface-2) !important;
+  fill: var(--nt-fg) !important;
+}
+
+.tab-throbber[busy],
+.tab-throbber[progress] {
+  color: var(--nt-accent) !important;
+  fill: var(--nt-accent) !important;
+}
+
+#tabbrowser-arrowscrollbox scrollbutton {
+  border-radius: 8px !important;
+  opacity: 0.6;
+}
+#tabbrowser-arrowscrollbox scrollbutton:hover {
+  opacity: 1;
+  background: var(--nt-surface-2) !important;
+}
+
+#appMenu-popup,
+#appMenu-mainView,
+.panel-subview-body,
+.panel-header {
+  background: var(--nt-surface) !important;
+  color: var(--nt-fg) !important;
+}
+
+#appMenu-popup {
+  --arrowpanel-dimmed: var(--nt-surface-2) !important;
+  --arrowpanel-dimmed-further: var(--nt-border) !important;
+  --arrowpanel-padding: 6px !important;
+}
+
+.subviewbutton {
+  border-radius: 8px !important;
+  color: var(--nt-fg) !important;
+}
+.subviewbutton:not([disabled]):hover,
+.subviewbutton:not([disabled])[_moz-menuactive] {
+  background: var(--nt-surface-2) !important;
+}
+.subviewbutton[disabled] {
+  opacity: 0.4;
+}
+
+#appMenu-zoom-controls,
+#appMenu-zoom-controls2 {
+  background: transparent !important;
+}
+
+toolbarseparator,
+menuseparator,
+.panel-subview-body > toolbarseparator {
+  border-color: var(--nt-border) !important;
+  opacity: 0.6;
+}
+
+.dialogBox,
+.tabDialogBox,
+#dialogStack .dialogBox {
+  background: var(--nt-surface) !important;
+  color: var(--nt-fg) !important;
+  border: 1px solid var(--nt-border) !important;
+  border-radius: var(--nt-radius) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5) !important;
+}
+
+.dialogOverlay {
+  background: rgba(0, 0, 0, 0.5) !important;
+}
+
+#downloadsPanel,
+#downloadsPanel-mainView {
+  background: var(--nt-surface) !important;
+  color: var(--nt-fg) !important;
+}
+
+#downloadsListBox richlistitem {
+  border-radius: 10px !important;
+  color: var(--nt-fg) !important;
+}
+#downloadsListBox richlistitem:hover,
+#downloadsListBox richlistitem[selected] {
+  background: var(--nt-surface-2) !important;
+}
+
+html|progress {
+  appearance: none !important;
+  background: var(--nt-border) !important;
+  border-radius: 4px !important;
+}
+html|progress::-moz-progress-bar {
+  background: var(--nt-accent) !important;
+  border-radius: 4px !important;
+}
+
+@-moz-document url("chrome://browser/content/places/places.xhtml")
+{
+  :root {
+    background: var(--nt-bg) !important;
+    color: var(--nt-fg) !important;
+  }
+
+  #placesList,
+  #placeContent,
+  #placesToolbar,
+  #placesView,
+  #searchFilter {
+    background: var(--nt-bg) !important;
+    color: var(--nt-fg) !important;
+    border-color: var(--nt-border) !important;
+  }
+
+  treechildren::-moz-tree-row(hover) {
+    background: var(--nt-surface) !important;
+  }
+  treechildren::-moz-tree-row(selected) {
+    background: var(--nt-surface-2) !important;
+  }
+  treechildren::-moz-tree-cell-text(selected) {
+    color: var(--nt-fg) !important;
+  }
+}
+
+@-moz-document url("chrome://browser/content/places/historySidebar.xhtml"),
+  url("chrome://browser/content/places/bookmarksSidebar.xhtml")
+{
+  :root,
+  #historyTree,
+  #bookmarks-view,
+  #sidebar-search-container {
+    background: var(--nt-bg) !important;
+    color: var(--nt-fg) !important;
+  }
+
+  treechildren::-moz-tree-row(hover) {
+    background: var(--nt-surface) !important;
+  }
+  treechildren::-moz-tree-row(selected) {
+    background: var(--nt-surface-2) !important;
+  }
+  treechildren::-moz-tree-cell-text(selected) {
+    color: var(--nt-fg) !important;
+  }
+}
+
+@-moz-document url-prefix("chrome://browser/content/sidebar/")
+{
+  :root {
+    --background-color-canvas: var(--nt-bg) !important;
+    --background-color-box: var(--nt-surface) !important;
+    --text-color: var(--nt-fg) !important;
+    --text-color-deemphasized: var(--nt-fg-dim) !important;
+    --border-color: var(--nt-border) !important;
+    --in-content-page-background: var(--nt-bg) !important;
+    --in-content-page-color: var(--nt-fg) !important;
+    --in-content-accent-color: var(--nt-accent) !important;
+  }
+
+  html,
+  body {
+    background: var(--nt-bg) !important;
+    color: var(--nt-fg) !important;
+  }
 }
