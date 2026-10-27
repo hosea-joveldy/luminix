@@ -10,5 +10,7 @@ user_pref("browser.download.useDownloadDir", true);
 user_pref("browser.search.suggest.enabled", true);
 user_pref("browser.urlbar.suggest.searches", true);
 user_pref("identity.fxaccounts.enabled", true);
+user_pref("devtools.chrome.enabled", true);
+user_pref("devtools.debugger.remote-enabled", true);
 
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
