@@ -26,5 +26,9 @@
   "bar": {
     "persistent": false,
     "showOnHover": true
+  },
+  "border": {
+    "thickness": 0,
+    "rounding": 0
   }
 }
