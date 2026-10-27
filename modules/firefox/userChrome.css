@@ -1,10 +1,3 @@
-/* ------------------------------------------------------------
-   userChrome.css — auto-hiding glass toolbar, Caelestia-themed
-   Colors come from the active Firefox theme (CaelestiaFox);
-   the fallbacks below are only used if no theme provides them.
-   Needs: toolkit.legacyUserProfileCustomizations.stylesheets = true
-   ------------------------------------------------------------ */
-
 .titlebar-buttonbox-container {
   display: none !important;
 }
@@ -12,9 +5,8 @@
 :root {
   --nt-bg: #0e0e0e;
   --nt-fg: #e6e6e6;
-  --nt-accent: #c7c7c7;
+  --nt-accent: #fabd2f;
 
-  /* Derived from the above, so they follow the theme automatically */
   --nt-fg-dim: color-mix(in srgb, var(--nt-fg) 60%, transparent);
   --nt-surface: color-mix(in srgb, var(--nt-bg) 90%, var(--nt-fg));
   --nt-surface-2: color-mix(in srgb, var(--nt-bg) 82%, var(--nt-fg));
@@ -38,7 +30,6 @@
     inset 1px 1px 1px -0.5px rgba(255, 255, 255, 0.5),
     inset -1px -1px 1px -0.5px rgba(255, 255, 255, 0.18);
 
-  /* Toolbar / panel variables (no --lwt-* overrides, so the theme still applies) */
   --toolbar-bgcolor: transparent !important;
   --toolbar-color: var(--nt-fg) !important;
   --toolbar-field-background-color: transparent !important;
@@ -56,10 +47,8 @@
   --tab-selected-textcolor: var(--nt-fg) !important;
 }
 
-/* ---------- Toolbar (always visible) ---------- */
-
 #navigator-toolbox {
-  background: var(--nt-bg) !important; /* same solid color as the sidebar */
+  background: var(--nt-bg) !important;
   border: none !important;
   box-shadow: none !important;
 }
@@ -76,8 +65,6 @@ toolbar {
   border: none !important;
   box-shadow: none !important;
 }
-
-/* ---------- Tabs ---------- */
 
 .tab-background {
   background: transparent !important;
@@ -126,8 +113,6 @@ toolbar {
   opacity: 1;
 }
 
-/* ---------- URL bar ---------- */
-
 #urlbar-background {
   background: var(--nt-glass) !important;
   border: none !important;
@@ -169,8 +154,6 @@ toolbar {
   opacity: 0;
 }
 
-/* ---------- Toolbar buttons ---------- */
-
 .toolbarbutton-1 {
   border-radius: var(--nt-radius) !important;
 }
@@ -179,8 +162,6 @@ toolbar {
   background: var(--nt-glass) !important;
   box-shadow: var(--nt-rim) !important;
 }
-
-/* ---------- Sidebar (solid, matches the toolbar) ---------- */
 
 #sidebar-main,
 #sidebar-box,
@@ -193,12 +174,20 @@ toolbar {
   border-color: var(--nt-border) !important;
 }
 
+sidebar-main {
+  background: var(--nt-bg) !important;
+  --background-color-canvas: var(--nt-bg) !important;
+  --background-color-box: var(--nt-bg) !important;
+  --background-color-deemphasized: var(--nt-bg) !important;
+  --button-background-color: transparent !important;
+  --button-background-color-hover: var(--nt-surface) !important;
+  --button-background-color-active: var(--nt-surface-2) !important;
+}
+
 #sidebar-splitter {
   background: var(--nt-border) !important;
   opacity: 0.5;
 }
-
-/* ---------- Menus / panels ---------- */
 
 menupopup,
 panel {
@@ -207,8 +196,6 @@ panel {
   --panel-border-color: var(--nt-border) !important;
   --panel-border-radius: var(--nt-radius) !important;
 }
-
-/* ---------- Content background ---------- */
 
 #tabbrowser-tabpanels,
 #browser,
