@@ -21,10 +21,18 @@
 
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor({
-  output   = "",
-  mode     = "preferred",
+  output   = "eDP-1",
+  mode     = "1920x1080@60",
+  position = "0x0",
+  scale    = 1,
+})
+
+hl.monitor({
+  output   = "HDMI-A-1",
+  mode     = "1920x1080@60",
   position = "auto",
-  scale    = "1",
+  scale    = 1,
+  mirror   = "eDP-1",
 })
 
 
@@ -132,8 +140,8 @@ hl.config({
 
     blur             = {
       enabled  = true,
-      size     = 6,
-      passes   = 3,
+      size     = 4,
+      passes   = 2,
       vibrancy = 0.1696,
     },
   },
@@ -254,6 +262,11 @@ hl.gesture({
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Devices/ for more
 hl.device({
   name        = "epic-mouse-v1",
+  sensitivity = -0.5,
+})
+
+hl.device({
+  name        = "cx-2.4g-receiver-mouse",
   sensitivity = -0.5,
 })
 
