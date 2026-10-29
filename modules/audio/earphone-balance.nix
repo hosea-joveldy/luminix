@@ -5,8 +5,6 @@ let
   rightMult = "0.1";
 
   pactl = "${pkgs.pulseaudio}/bin/pactl";
-  grep = "${pkgs.gnugrep}/bin/grep";
-  systemctl = "${pkgs.systemd}/bin/systemctl";
 
   conf = pkgs.writeText "earphone-balance.conf" ''
     context.modules = [
