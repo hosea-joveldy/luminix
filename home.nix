@@ -117,7 +117,7 @@ in
     source = pkgs.writeText "hyprland.lua" (
       builtins.replaceStrings
         [ "@wallpaper@" ]
-        [ "${./assets/wallpapers/snowy-road.png}" ]
+        [ "${./assets/wallpapers/city-12.jpg}" ]
         (builtins.readFile ./modules/hyprland/hyprland.lua)
     );
     force = true;
