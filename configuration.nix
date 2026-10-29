@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./modules/audio
     ];
 
   hardware.bluetooth.enable = true;
@@ -80,26 +81,6 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    wireplumber.enable = true;
-
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    extraConfig.pipewire-pulse."99-disable-flat-volumes" = {
-      "pulse.properties" = {
-        "pulse.flat-volumes" = false;
-      };
-    };
-  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
@@ -185,75 +166,6 @@
     description = "fusuma gesture daemon";
     wantedBy = [ "default.target" ];
     serviceConfig.ExecStart = "${pkgs.fusuma}/bin/fusuma -c ${./modules/fusuma/config.yml}";
-  };
-
-  services.pipewire.wireplumber.extraConfig."51-priority" = {
-    "monitor.alsa.rules" = [
-      {
-        matches = [
-          { "node.name" = "~alsa_output.pci-.*"; }
-        ];
-        actions = {
-          update-props = {
-            "priority.session" = 100;
-          };
-        };
-      }
-      {
-        matches = [
-          { "node.name" = "~alsa_output.usb-.*"; }
-        ];
-        actions = {
-          update-props = {
-            "priority.session" = 2000;
-          };
-        };
-      }
-    ];
-    "monitor.bluez.rules" = [
-      {
-        matches = [
-          { "node.name" = "~bluez_output.*"; }
-        ];
-        actions = {
-          update-props = {
-            "priority.session" = 3000;
-          };
-        };
-      }
-    ];
-  };
-
-  services.pipewire.extraConfig.pipewire."60-balance" = {
-    "context.modules" = [
-      {
-        name = "libpipewire-module-filter-chain";
-        args = {
-          "node.description" = "Earphone USB balanced";
-          "media.name" = "Earphone USB balanced";
-          "filter.graph" = {
-            nodes = [
-              { type = "builtin"; name = "gainL"; label = "linear"; control = { Mult = 1.0; Add = 0.0; }; }
-              { type = "builtin"; name = "gainR"; label = "linear"; control = { Mult = 0.04; Add = 0.0; }; }
-            ];
-            inputs = [ "gainL:In" "gainR:In" ];
-            outputs = [ "gainL:Out" "gainR:Out" ];
-          };
-          "audio.channels" = 2;
-          "audio.position" = [ "FL" "FR" ];
-          "capture.props" = {
-            "node.name" = "balanced_earphone";
-            "media.class" = "Audio/Sink";
-            "priority.session" = 1;
-          };
-          "playback.props" = {
-            "node.name" = "balanced_earphone_out";
-            "node.passive" = true;
-            "target.object" = "alsa_output.usb-Generic_AB13X_USB_Audio_20210726905926-00.analog-stereo";
-          };
-        };
-      }
-    ];
   };
 
   services.syncthing = {
