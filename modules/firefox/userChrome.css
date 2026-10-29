@@ -1,62 +1,110 @@
 @namespace html url("http://www.w3.org/1999/xhtml");
 
-.titlebar-buttonbox-container {
-  display: none !important;
-}
-
 :root {
   --nt-bg: #0e0e0e;
-  --nt-fg: #e6e6e6;
-  --nt-accent: #fabd2f;
+  --nt-fg: #cfcfcf;
+  --nt-accent: var(--nt-fg);
 
-  --nt-fg-dim: color-mix(in srgb, var(--nt-fg) 60%, transparent);
-  --nt-surface: color-mix(in srgb, var(--nt-bg) 90%, var(--nt-fg));
-  --nt-surface-2: color-mix(in srgb, var(--nt-bg) 82%, var(--nt-fg));
-  --nt-border: color-mix(in srgb, var(--nt-bg) 75%, var(--nt-fg));
+  --nt-fg-dim: color-mix(in srgb, var(--nt-fg) 55%, transparent);
+  --nt-hover: color-mix(in srgb, var(--nt-fg) 8%, transparent);
+  --nt-select: color-mix(in srgb, var(--nt-fg) 14%, transparent);
 
-  --nt-radius: 14px;
-
-  --nt-glass: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.14),
-    rgba(255, 255, 255, 0.03) 45%,
-    rgba(255, 255, 255, 0.08)
-  );
-  --nt-glass-hover: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.2),
-    rgba(255, 255, 255, 0.06) 45%,
-    rgba(255, 255, 255, 0.12)
-  );
-  --nt-rim:
-    inset 1px 1px 1px -0.5px rgba(255, 255, 255, 0.5),
-    inset -1px -1px 1px -0.5px rgba(255, 255, 255, 0.18);
+  --nt-radius-lg: 14px;
+  --nt-radius-md: 10px;
+  --nt-radius-sm: 8px;
 
   --toolbar-bgcolor: transparent !important;
   --toolbar-color: var(--nt-fg) !important;
   --toolbar-field-background-color: transparent !important;
   --toolbar-field-focus-background-color: transparent !important;
   --toolbar-field-color: var(--nt-fg) !important;
+  --toolbar-field-focus-border-color: transparent !important;
   --toolbarbutton-icon-fill: var(--nt-fg-dim) !important;
-  --arrowpanel-background: var(--nt-surface) !important;
+  --toolbarseparator-color: transparent !important;
+  --chrome-content-separator-color: transparent !important;
+  --tabs-navbar-separator-style: none !important;
+  --focus-outline-color: var(--nt-accent) !important;
+
+  --urlbar-box-bgcolor: transparent !important;
+  --urlbar-box-hover-bgcolor: var(--nt-hover) !important;
+  --urlbar-box-active-bgcolor: var(--nt-hover) !important;
+  --urlbar-box-focus-bgcolor: var(--nt-bg) !important;
+  --urlbar-box-text-color: var(--nt-fg) !important;
+  --urlbarView-hover-background: var(--nt-hover) !important;
+  --urlbarView-highlight-background: var(--nt-select) !important;
+
+  --arrowpanel-background: var(--nt-bg) !important;
   --arrowpanel-color: var(--nt-fg) !important;
-  --arrowpanel-border-color: var(--nt-border) !important;
+  --arrowpanel-border-color: transparent !important;
+  --arrowpanel-border-radius: var(--nt-radius-lg) !important;
+  --arrowpanel-dimmed: var(--nt-hover) !important;
+  --arrowpanel-dimmed-further: var(--nt-select) !important;
+  --arrowpanel-dimmed-even-further: var(--nt-select) !important;
+
+  --panel-separator-color: transparent !important;
+  --panel-separator-zap-gradient: linear-gradient(
+    90deg,
+    transparent,
+    transparent
+  ) !important;
+
+  --button-background-color: transparent !important;
+  --button-background-color-hover: var(--nt-hover) !important;
+  --button-background-color-active: var(--nt-select) !important;
+  --button-text-color: var(--nt-fg) !important;
+  --button-background-color-menu: transparent !important;
+  --button-text-color-menu: var(--nt-fg) !important;
+  --panel-menuitem-border-radius: var(--nt-radius-sm) !important;
 
   --sidebar-background-color: var(--nt-bg) !important;
   --sidebar-text-color: var(--nt-fg) !important;
-  --sidebar-border-color: var(--nt-border) !important;
+  --sidebar-border-color: transparent !important;
   --tab-selected-bgcolor: transparent !important;
   --tab-selected-textcolor: var(--nt-fg) !important;
+
+  color-scheme: dark !important;
 }
 
-#navigator-toolbox {
-  background: var(--nt-bg) !important;
-  border: none !important;
-  box-shadow: none !important;
+:root[privatebrowsingmode="temporary"] {
+  --nt-accent: #d3869b;
 }
 
-#navigator-toolbox::after {
+.titlebar-buttonbox-container {
   display: none !important;
+}
+
+/* Surfaces */
+
+#navigator-toolbox,
+#tabbrowser-tabpanels,
+#browser,
+#appcontent,
+#sidebar-main,
+#sidebar-box,
+#sidebar-header,
+#sidebar-splitter,
+#tabbrowser-arrowscrollbox,
+#vertical-tabs,
+#vertical-pinned-tabs-container,
+#appMenu-mainView,
+#downloadsPanel-mainView,
+.panel-subview-body,
+.panel-header,
+.findbar-textbox,
+.dialogBox,
+.tabDialogBox,
+findbar,
+notification-message,
+sidebar-main,
+tooltip {
+  background: var(--nt-bg) !important;
+  color: var(--nt-fg) !important;
+}
+
+sidebar-main {
+  --background-color-canvas: var(--nt-bg) !important;
+  --background-color-box: var(--nt-bg) !important;
+  --background-color-deemphasized: var(--nt-bg) !important;
 }
 
 #nav-bar,
@@ -64,30 +112,129 @@
 #PersonalToolbar,
 toolbar {
   background: transparent !important;
+}
+
+#navigator-toolbox::after {
+  display: none !important;
+}
+
+.dialogOverlay {
+  background: color-mix(in srgb, var(--nt-bg) 50%, transparent) !important;
+}
+
+/* Borders and shadows */
+
+#navigator-toolbox,
+#nav-bar,
+#TabsToolbar,
+#PersonalToolbar,
+#sidebar-main,
+#sidebar-box,
+#sidebar-header,
+#tabbrowser-arrowscrollbox,
+#vertical-tabs,
+#vertical-pinned-tabs-container,
+.findbar-textbox,
+.dialogBox,
+.tabDialogBox,
+findbar,
+toolbar,
+tooltip {
   border: none !important;
   box-shadow: none !important;
+}
+
+/* Radii */
+
+.tab-background,
+#urlbar-background,
+.toolbarbutton-1,
+.dialogBox,
+.tabDialogBox,
+menupopup,
+notification-message {
+  border-radius: var(--nt-radius-lg) !important;
+}
+
+.bookmark-item,
+.panel-footer button,
+.panel-footer toolbarbutton,
+.urlbarView-row,
+.urlbarView-row-inner,
+#PanelUI-historyMore,
+#downloadsListBox richlistitem {
+  border-radius: var(--nt-radius-md) !important;
+}
+
+.findbar-textbox,
+.searchbar-engine-one-off-item,
+.tab-close-button,
+.tab-icon-overlay,
+#tabbrowser-arrowscrollbox scrollbutton,
+menuitem:hover,
+menu:hover,
+tooltip {
+  border-radius: var(--nt-radius-sm) !important;
+}
+
+/* Text */
+
+.bookmark-item,
+.panel-footer button,
+.panel-footer toolbarbutton,
+.urlbarView-title,
+#downloadsListBox richlistitem,
+#urlbar .urlbarView,
+#urlbar-input {
+  color: var(--nt-fg) !important;
+}
+
+/* Hover and selection */
+
+.bookmark-item:hover:not([disabled]),
+.panel-footer button:hover,
+.panel-footer toolbarbutton:hover,
+.panel-subview-footer-button:hover,
+.subviewbutton:not([disabled]):hover,
+.subviewbutton:not([disabled])[_moz-menuactive],
+.tabbrowser-tab:hover:not([selected]) .tab-background,
+.tabbrowser-tab[pinned] .tab-background,
+.toolbarbutton-1:hover:not([disabled]) > .toolbarbutton-badge-stack,
+.toolbarbutton-1:hover:not([disabled]) > .toolbarbutton-icon,
+#PanelUI-historyMore:hover,
+#downloadsListBox richlistitem:hover,
+#downloadsListBox richlistitem[selected],
+#tabbrowser-arrowscrollbox scrollbutton:hover,
+#urlbar .urlbarView-row:hover:not([selected]),
+#urlbar:hover #urlbar-background,
+menu:hover,
+menuitem:hover {
+  background: var(--nt-hover) !important;
+}
+
+.searchbar-engine-one-off-item:hover,
+.searchbar-engine-one-off-item[selected],
+.tab-close-button:hover,
+.tabbrowser-tab[selected] .tab-background,
+.toolbarbutton-1:active:not([disabled]) > .toolbarbutton-icon,
+.toolbarbutton-1[open] > .toolbarbutton-icon,
+#urlbar .urlbarView-row[selected] {
+  background: var(--nt-select) !important;
+}
+
+/* Tabs */
+
+.tab-background,
+#urlbar-background {
+  background: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 .tab-background {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  border-radius: var(--nt-radius) !important;
   margin-block: 4px !important;
-}
-
-.tabbrowser-tab:hover:not([selected]) .tab-background {
-  background: var(--nt-glass) !important;
-  box-shadow: var(--nt-rim) !important;
-  opacity: 0.8;
-}
-
-.tabbrowser-tab[selected] .tab-background {
-  background: var(--nt-glass-hover) !important;
-  box-shadow:
-    var(--nt-rim),
-    0 6px 18px rgba(0, 0, 0, 0.35) !important;
-  outline: none !important;
 }
 
 .tabbrowser-tab[selected] .tab-background::after {
@@ -97,209 +244,18 @@ toolbar {
   height: 2px;
   border-radius: 2px;
   background: var(--nt-accent);
-  opacity: 0.8;
 }
 
 .tab-label {
   color: var(--nt-fg-dim) !important;
 }
+
 .tabbrowser-tab[selected] .tab-label {
   color: var(--nt-fg) !important;
 }
 
-.tab-close-button {
-  border-radius: 8px !important;
-  opacity: 0.6;
-}
-.tab-close-button:hover {
-  opacity: 1;
-  background: var(--nt-surface-2) !important;
-}
-
-#alltabs-button,
-#tabbrowser-arrowscrollbox-periphery .tabs-newtab-button {
-  opacity: 0.5;
-}
-#tabbrowser-arrowscrollbox-periphery .tabs-newtab-button:hover {
-  opacity: 1;
-}
-
-#urlbar-background {
-  background: var(--nt-glass) !important;
-  border: none !important;
-  border-radius: var(--nt-radius) !important;
-  box-shadow: var(--nt-rim) !important;
-}
-
-#urlbar[focused] #urlbar-background,
-#urlbar[open] #urlbar-background {
-  background: var(--nt-glass-hover) !important;
-  box-shadow:
-    var(--nt-rim),
-    0 0 0 1px var(--nt-accent) !important;
-}
-
-#urlbar[open] > #urlbar-background {
-  background-color: var(--nt-surface) !important;
-}
-
-#urlbar-input,
-#urlbar .urlbarView {
-  color: var(--nt-fg) !important;
-}
-
-#urlbar .urlbarView-row[selected] {
-  background: var(--nt-surface-2) !important;
-  border-radius: 10px !important;
-}
-
-.urlbarView-row:hover:not([selected]) {
-  background: var(--nt-surface) !important;
-  border-radius: 10px !important;
-}
-
-.urlbarView-title {
-  color: var(--nt-fg) !important;
-}
-
-.urlbarView-url {
-  color: var(--nt-accent) !important;
-}
-
-#urlbar:not([focused]) #urlbar-input {
-  text-align: center;
-}
-
-#identity-box,
-#tracking-protection-icon-container {
-  opacity: 0.7;
-}
-#urlbar:not(:hover):not([focused]) #page-action-buttons {
-  opacity: 0;
-}
-
-.toolbarbutton-1 {
-  border-radius: var(--nt-radius) !important;
-}
-.toolbarbutton-1:hover:not([disabled]) > .toolbarbutton-icon,
-.toolbarbutton-1:hover:not([disabled]) > .toolbarbutton-badge-stack {
-  background: var(--nt-glass) !important;
-  box-shadow: var(--nt-rim) !important;
-}
-.toolbarbutton-1[open] > .toolbarbutton-icon,
-.toolbarbutton-1:active:not([disabled]) > .toolbarbutton-icon {
-  background: var(--nt-glass-hover) !important;
-  box-shadow: var(--nt-rim) !important;
-}
-
-.bookmark-item {
-  border-radius: 10px !important;
-  color: var(--nt-fg) !important;
-}
-.bookmark-item:hover:not([disabled]) {
-  background: var(--nt-glass) !important;
-  box-shadow: var(--nt-rim) !important;
-}
-
-#sidebar-main,
-#sidebar-box,
-#sidebar-header,
-#tabbrowser-arrowscrollbox,
-#vertical-tabs,
-#vertical-pinned-tabs-container {
-  background: var(--nt-bg) !important;
-  color: var(--nt-fg) !important;
-  border-color: var(--nt-border) !important;
-}
-
-sidebar-main {
-  background: var(--nt-bg) !important;
-  --background-color-canvas: var(--nt-bg) !important;
-  --background-color-box: var(--nt-bg) !important;
-  --background-color-deemphasized: var(--nt-bg) !important;
-  --button-background-color: transparent !important;
-  --button-background-color-hover: var(--nt-surface) !important;
-  --button-background-color-active: var(--nt-surface-2) !important;
-}
-
-#sidebar-splitter {
-  background: var(--nt-border) !important;
-  opacity: 0.5;
-}
-
-menupopup,
-panel {
-  --panel-background: var(--nt-surface) !important;
-  --panel-color: var(--nt-fg) !important;
-  --panel-border-color: var(--nt-border) !important;
-  --panel-border-radius: var(--nt-radius) !important;
-  --panel-item-hover-bgcolor: var(--nt-surface-2) !important;
-  --panel-item-active-bgcolor: var(--nt-surface-2) !important;
-  --panel-separator-color: var(--nt-border) !important;
-}
-
-menupopup {
-  border-radius: var(--nt-radius) !important;
-  padding: 4px !important;
-}
-
-menuitem:hover,
-menu:hover {
-  background: var(--nt-surface-2) !important;
-  border-radius: 8px !important;
-}
-
-findbar {
-  background: var(--nt-surface) !important;
-  color: var(--nt-fg) !important;
-  border: none !important;
-}
-.findbar-textbox {
-  background: var(--nt-bg) !important;
-  color: var(--nt-fg) !important;
-  border-radius: 8px !important;
-}
-
-tooltip {
-  appearance: none !important;
-  background: var(--nt-surface) !important;
-  color: var(--nt-fg) !important;
-  border: 1px solid var(--nt-border) !important;
-  border-radius: 8px !important;
-}
-
-notification-message {
-  background: var(--nt-surface) !important;
-  color: var(--nt-fg) !important;
-  border-radius: var(--nt-radius) !important;
-}
-
-* {
-  scrollbar-color: var(--nt-border) transparent;
-  scrollbar-width: thin;
-}
-
-::selection {
-  background: color-mix(in srgb, var(--nt-accent) 35%, transparent);
-}
-
-#tabbrowser-tabpanels,
-#browser,
-#appcontent {
-  background: var(--nt-bg) !important;
-}
-
-:root[privatebrowsingmode="temporary"] {
-  --nt-accent: #d3869b;
-}
-
-.tabbrowser-tab[pinned] .tab-background {
-  background: var(--nt-surface) !important;
-}
-
 .tab-icon-overlay {
-  border-radius: 8px !important;
-  background: var(--nt-surface-2) !important;
+  background: var(--nt-bg) !important;
   fill: var(--nt-fg) !important;
 }
 
@@ -309,137 +265,192 @@ notification-message {
   fill: var(--nt-accent) !important;
 }
 
+.tab-close-button,
 #tabbrowser-arrowscrollbox scrollbutton {
-  border-radius: 8px !important;
   opacity: 0.6;
 }
-#tabbrowser-arrowscrollbox scrollbutton:hover {
-  opacity: 1;
-  background: var(--nt-surface-2) !important;
+
+#alltabs-button,
+#tabbrowser-arrowscrollbox-periphery .tabs-newtab-button {
+  opacity: 0.5;
 }
 
-#appMenu-popup,
-#appMenu-mainView,
-.panel-subview-body,
-.panel-header {
-  background: var(--nt-surface) !important;
-  color: var(--nt-fg) !important;
+.tab-close-button:hover,
+#tabbrowser-arrowscrollbox scrollbutton:hover,
+#tabbrowser-arrowscrollbox-periphery .tabs-newtab-button:hover {
+  opacity: 1;
+}
+
+/* URL bar */
+
+#urlbar[focused] #urlbar-background,
+#urlbar[open] #urlbar-background {
+  background: var(--nt-bg) !important;
+  box-shadow: 0 0 0 1px var(--nt-accent) !important;
+}
+
+#urlbar:not([focused]) #urlbar-input {
+  text-align: center;
+}
+
+#urlbar .urlbarView,
+#urlbar .urlbarView-body-inner,
+#urlbar .urlbarView-body-outer,
+#urlbar .urlbarView-results,
+#urlbar .search-one-offs,
+.urlbarView-search-one-offs,
+.search-panel-one-offs-container {
+  background: transparent !important;
+  border: none !important;
+}
+
+#urlbar .urlbarView-row,
+#urlbar .urlbarView-row-inner,
+.searchbar-engine-one-off-item {
+  background: transparent !important;
+}
+
+.urlbarView-url {
+  color: var(--nt-fg-dim) !important;
+}
+
+#identity-box,
+#tracking-protection-icon-container {
+  opacity: 0.7;
+}
+
+#urlbar:not(:hover):not([focused]) #page-action-buttons {
+  opacity: 0;
+}
+
+/* Menus and panels */
+
+menupopup,
+panel {
+  --background-color-canvas: var(--nt-bg) !important;
+  --panel-background-color: var(--nt-bg) !important;
+  --panel-background: var(--nt-bg) !important;
+  --panel-color: var(--nt-fg) !important;
+  --panel-border-color: transparent !important;
+  --panel-border-radius: var(--nt-radius-lg) !important;
+  --panel-item-hover-bgcolor: var(--nt-hover) !important;
+  --panel-item-active-bgcolor: var(--nt-select) !important;
+  --panel-separator-color: transparent !important;
+
+  appearance: none !important;
+}
+
+menupopup {
+  padding: 4px !important;
+}
+
+panel {
+  background: transparent !important;
+}
+
+panel::part(content),
+menupopup::part(content) {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+panel::part(content) {
+  border-radius: var(--nt-radius-lg) !important;
+  overflow: clip !important;
+}
+
+.panel-subview-body {
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 #appMenu-popup {
-  --arrowpanel-dimmed: var(--nt-surface-2) !important;
-  --arrowpanel-dimmed-further: var(--nt-border) !important;
   --arrowpanel-padding: 6px !important;
 }
 
-.subviewbutton {
-  border-radius: 8px !important;
-  color: var(--nt-fg) !important;
-}
-.subviewbutton:not([disabled]):hover,
-.subviewbutton:not([disabled])[_moz-menuactive] {
-  background: var(--nt-surface-2) !important;
-}
 .subviewbutton[disabled] {
   opacity: 0.4;
 }
 
-#appMenu-zoom-controls,
-#appMenu-zoom-controls2 {
+.panel-footer button,
+.panel-footer toolbarbutton,
+.panel-subview-footer-button,
+#PanelUI-historyMore {
+  appearance: none !important;
   background: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
-toolbarseparator,
 menuseparator,
-.panel-subview-body > toolbarseparator {
-  border-color: var(--nt-border) !important;
-  opacity: 0.6;
+toolbarseparator {
+  visibility: hidden !important;
 }
 
-.dialogBox,
-.tabDialogBox,
-#dialogStack .dialogBox {
-  background: var(--nt-surface) !important;
-  color: var(--nt-fg) !important;
-  border: 1px solid var(--nt-border) !important;
-  border-radius: var(--nt-radius) !important;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5) !important;
+tooltip {
+  appearance: none !important;
 }
 
-.dialogOverlay {
-  background: rgba(0, 0, 0, 0.5) !important;
-}
-
-#downloadsPanel,
-#downloadsPanel-mainView {
-  background: var(--nt-surface) !important;
-  color: var(--nt-fg) !important;
-}
-
-#downloadsListBox richlistitem {
-  border-radius: 10px !important;
-  color: var(--nt-fg) !important;
-}
-#downloadsListBox richlistitem:hover,
-#downloadsListBox richlistitem[selected] {
-  background: var(--nt-surface-2) !important;
-}
+/* Progress, scrollbars, selection */
 
 html|progress {
   appearance: none !important;
-  background: var(--nt-border) !important;
+  background: var(--nt-hover) !important;
   border-radius: 4px !important;
 }
+
 html|progress::-moz-progress-bar {
   background: var(--nt-accent) !important;
   border-radius: 4px !important;
 }
 
-@-moz-document url("chrome://browser/content/places/places.xhtml")
-{
-  :root {
-    background: var(--nt-bg) !important;
-    color: var(--nt-fg) !important;
-  }
-
-  #placesList,
-  #placeContent,
-  #placesToolbar,
-  #placesView,
-  #searchFilter {
-    background: var(--nt-bg) !important;
-    color: var(--nt-fg) !important;
-    border-color: var(--nt-border) !important;
-  }
-
-  treechildren::-moz-tree-row(hover) {
-    background: var(--nt-surface) !important;
-  }
-  treechildren::-moz-tree-row(selected) {
-    background: var(--nt-surface-2) !important;
-  }
-  treechildren::-moz-tree-cell-text(selected) {
-    color: var(--nt-fg) !important;
-  }
+* {
+  scrollbar-color: var(--nt-fg-dim) transparent;
+  scrollbar-width: thin;
 }
 
-@-moz-document url("chrome://browser/content/places/historySidebar.xhtml"),
+::selection {
+  background: color-mix(in srgb, var(--nt-fg) 25%, transparent);
+}
+
+/* Library window and sidebar panels */
+
+@-moz-document url("chrome://browser/content/places/places.xhtml"),
+  url("chrome://browser/content/places/historySidebar.xhtml"),
   url("chrome://browser/content/places/bookmarksSidebar.xhtml")
 {
   :root,
-  #historyTree,
   #bookmarks-view,
+  #historyTree,
+  #placeContent,
+  #placesList,
+  #placesToolbar,
+  #placesView,
+  #searchFilter,
   #sidebar-search-container {
     background: var(--nt-bg) !important;
     color: var(--nt-fg) !important;
   }
 
+  #placeContent,
+  #placesList,
+  #placesToolbar,
+  #placesView,
+  #searchFilter {
+    border-color: transparent !important;
+  }
+
   treechildren::-moz-tree-row(hover) {
-    background: var(--nt-surface) !important;
+    background: var(--nt-hover) !important;
   }
+
   treechildren::-moz-tree-row(selected) {
-    background: var(--nt-surface-2) !important;
+    background: var(--nt-select) !important;
   }
+
   treechildren::-moz-tree-cell-text(selected) {
     color: var(--nt-fg) !important;
   }
@@ -449,10 +460,10 @@ html|progress::-moz-progress-bar {
 {
   :root {
     --background-color-canvas: var(--nt-bg) !important;
-    --background-color-box: var(--nt-surface) !important;
+    --background-color-box: var(--nt-bg) !important;
     --text-color: var(--nt-fg) !important;
     --text-color-deemphasized: var(--nt-fg-dim) !important;
-    --border-color: var(--nt-border) !important;
+    --border-color: transparent !important;
     --in-content-page-background: var(--nt-bg) !important;
     --in-content-page-color: var(--nt-fg) !important;
     --in-content-accent-color: var(--nt-accent) !important;
