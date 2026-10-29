@@ -234,7 +234,7 @@
           "filter.graph" = {
             nodes = [
               { type = "builtin"; name = "gainL"; label = "linear"; control = { Mult = 1.0; Add = 0.0; }; }
-              { type = "builtin"; name = "gainR"; label = "linear"; control = { Mult = 0.125; Add = 0.0; }; }
+              { type = "builtin"; name = "gainR"; label = "linear"; control = { Mult = 0.04; Add = 0.0; }; }
             ];
             inputs = [ "gainL:In" "gainR:In" ];
             outputs = [ "gainL:Out" "gainR:Out" ];
