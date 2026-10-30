@@ -40,6 +40,24 @@ in
     libre-baskerville
     (google-fonts.override { fonts = [ "SpecialElite" "BebasNeue" ]; })
 
+    # quickshell rice
+    quickshell
+    matugen
+    grim
+    slurp
+    imagemagick
+    cliphist
+    playerctl
+    brightnessctl
+    pavucontrol
+    jq
+    libnotify
+    lm_sensors
+    gammastep
+    mpvpaper
+    ffmpeg
+    zenity
+
     #game
     mindustry-wayland
 
@@ -151,6 +169,10 @@ in
     source = ./modules/btop/btop.conf;
     force = true;
   };
+  xdg.configFile."quickshell" = {
+    source = config.lib.file.mkOutOfStoreSymlink "/home/lumi/lab/projects/luminix/modules/quickshell";
+    force = true;
+  };
   xdg.configFile."mimeapps.list".force = true;
 
   home.file.".config/mozilla/firefox/3eoiozxq.default-1789488385411/chrome/userChrome.css".force = true;
@@ -161,6 +183,7 @@ in
   xdg.dataFile."plasma/look-and-feel/GlassDark/contents/splash/images/nix-snowflake.svg".source = ./modules/splash/images/nix-snowflake.svg;
   xdg.dataFile."plasma/look-and-feel/GlassDark/metadata.json".source = ./modules/splash/metadata.json;
 
+  services.hyprpolkitagent.enable = true;
 
   programs.bash = {
     enable = true;

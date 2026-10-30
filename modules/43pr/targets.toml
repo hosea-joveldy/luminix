@@ -22,9 +22,9 @@
 # input  = "~/.config/43pr/templates/gtk-colors.css"
 # output = "~/.config/gtk-4.0/colors.css"
 
-# [quickshell]
-# input  = "~/.config/43pr/templates/quickshell-theme.json"
-# output = "~/.cache/43pr/quickshell-theme.json"
+[quickshell]
+input  = "~/.config/43pr/templates/quickshell-theme.json"
+output = "~/.cache/43pr/quickshell-theme.json"
 
 [btop]
 input  = "~/.config/43pr/templates/btop.theme"

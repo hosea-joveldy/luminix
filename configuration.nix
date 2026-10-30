@@ -6,7 +6,7 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
       ./modules/audio
     ];
@@ -82,14 +82,16 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.libinput.enable = true;
-
   services.logind.settings.Login.HandleLidSwitch = "hibernate";
 
   services.udev.extraRules = ''
     KERNEL=="uinput", GROUP="input", MODE="0660", OPTIONS+="static_node=uinput"
   '';
+
+  services.upower.enable = true;
+  services.power-profiles-daemon.enable = true;
+  services.blueman.enable = true;
+  programs.dconf.enable = true;
 
   users.users."lumi" = {
     isNormalUser = true;
