@@ -130,6 +130,10 @@ in
     source = ./modules/caelestia/monitors/eDP-1/shell.json;
     force = true;
   };
+  xdg.configFile."starship.toml" = {
+    source = ./modules/starship.toml;
+    force = true;
+  };
   xdg.configFile."cava/config".force = true;
   xdg.configFile."mimeapps.list".force = true;
 
@@ -263,6 +267,20 @@ in
       };
     };
 
+  programs.starship.enable = true; # config is in modules/starship.toml
+
+  programs.kitty = {
+    enable = true;
+    settings = {
+      background_opacity = "1";
+      confirm_os_window_close = 0;
+      font_family = "JetBrains Nerd Font Mono";
+      font_size = 13;
+      window_padding_width = "32";
+    };
+    extraConfig = builtins.readFile ./modules/kitty-theme.conf;
+  };
+
   programs.firefox = {
     enable = true;
     nativeMessagingHosts = [
@@ -296,18 +314,6 @@ in
       adblock
       hidePodcasts
     ];
-  };
-
-  programs.kitty = {
-    enable = true;
-    settings = {
-      background_opacity = "1";
-      confirm_os_window_close = 0;
-      font_family = "JetBrains Nerd Font Mono";
-      font_size = 13;
-      window_padding_width = "32";
-    };
-    extraConfig = builtins.readFile ./modules/kitty-theme.conf;
   };
 
   programs.plasma = {
