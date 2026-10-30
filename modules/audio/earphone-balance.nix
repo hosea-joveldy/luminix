@@ -40,7 +40,7 @@ let
 
   makeDefault = pkgs.writeShellScript "earphone-balance-default" ''
     for i in $(seq 10); do
-      if ${pactl} list short sinks | ${grep} -q balanced_earphone; then
+      if ${pactl} list short sinks | grep -q balanced_earphone; then
         ${pactl} set-default-sink balanced_earphone
         exit 0
       fi
@@ -50,10 +50,10 @@ let
 
   watch = pkgs.writeShellScript "earphone-balance-watch" ''
     check() {
-      if ${pactl} list short sinks | ${grep} -q "${usbSink}"; then
-        ${systemctl} --user start earphone-balance-filter.service
+      if ${pactl} list short sinks | grep -q "${usbSink}"; then
+        systemctl --user start earphone-balance-filter.service
       else
-        ${systemctl} --user stop earphone-balance-filter.service
+        systemctl --user stop earphone-balance-filter.service
       fi
     }
     check
