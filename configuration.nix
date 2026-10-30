@@ -115,7 +115,6 @@
     efibootmgr
     fusuma
     gnupg
-    htop
     iw
     os-prober
     pass

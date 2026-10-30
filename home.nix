@@ -24,6 +24,7 @@ in
 
   home.packages = (with pkgs; [
     anki
+    btop
     chromium
     libreoffice-qt
     obsidian
@@ -144,6 +145,10 @@ in
   xdg.configFile."cava/themes/tricolor".source = ./modules/cava/themes/tricolor;
   xdg.configFile."43pr" = {
     source = ./modules/43pr;
+    force = true;
+  };
+  xdg.configFile."btop/btop.conf" = {
+    source = ./modules/btop/btop.conf;
     force = true;
   };
   xdg.configFile."mimeapps.list".force = true;
