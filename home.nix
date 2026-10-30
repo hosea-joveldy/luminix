@@ -50,6 +50,10 @@ in
     inputs.caelestia-cli.packages.${pkgs.stdenv.hostPlatform.system}.with-shell
 
     (pkgs.callPackage ./modules/lumitab/sign.nix { })
+
+    (pkgs.writeShellScriptBin "themy" ''
+      exec ${pkgs.python3}/bin/python3 "$HOME/.config/43pr/bin/theme.py" "$@"
+    '')
   ];
 
   xdg.mimeApps = {
@@ -134,7 +138,14 @@ in
     source = ./modules/starship.toml;
     force = true;
   };
-  xdg.configFile."cava/config".force = true;
+  xdg.configFile."cava/config".source = ./modules/cava/config;
+  xdg.configFile."cava/shaders".source = ./modules/cava/shaders;
+  xdg.configFile."cava/themes/solarized_dark".source = ./modules/cava/themes/solarized_dark;
+  xdg.configFile."cava/themes/tricolor".source = ./modules/cava/themes/tricolor;
+  xdg.configFile."43pr" = {
+    source = ./modules/43pr;
+    force = true;
+  };
   xdg.configFile."mimeapps.list".force = true;
 
   home.file.".config/mozilla/firefox/3eoiozxq.default-1789488385411/chrome/userChrome.css".force = true;
@@ -163,32 +174,20 @@ in
     };
   };
 
-  programs.cava = {
+  programs.kitty = {
     enable = true;
     settings = {
-      general = {
-        bars = 20;
-        framerate = 60;
-        sensitivity = 100;
-      };
-      input = {
-        method = "pipewire";
-      };
-      output = {
-        method = "ncurses";
-      };
-      color = {
-        gradient = 1;
-        gradient_count = 3;
-        gradient_color_1 = "'#a7c080'";
-        gradient_color_2 = "'#dbbc7f'";
-        gradient_color_3 = "'#e67e80'";
-      };
-      smoothing = {
-        noise_reduction = 50;
-      };
+      background_opacity = "1";
+      confirm_os_window_close = 0;
+      font_family = "JetBrains Nerd Font Mono";
+      font_size = 13;
+      window_padding_width = "32";
     };
+    extraConfig = builtins.readFile ./modules/kitty-theme.conf;
   };
+
+  programs.cava.enable = true; # config is in modules/cava
+  programs.starship.enable = true; # config is in modules/starship.toml
 
   programs.fastfetch =
     let
@@ -266,20 +265,6 @@ in
         ];
       };
     };
-
-  programs.starship.enable = true; # config is in modules/starship.toml
-
-  programs.kitty = {
-    enable = true;
-    settings = {
-      background_opacity = "1";
-      confirm_os_window_close = 0;
-      font_family = "JetBrains Nerd Font Mono";
-      font_size = 13;
-      window_padding_width = "32";
-    };
-    extraConfig = builtins.readFile ./modules/kitty-theme.conf;
-  };
 
   programs.firefox = {
     enable = true;
