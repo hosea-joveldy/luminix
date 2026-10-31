@@ -166,6 +166,8 @@
     kwalletmanager
   ];
 
+  services.flatpak.enable = true;
+
   systemd.user.services.ydotoold = {
     description = "ydotool daemon";
     wantedBy = [ "default.target" ];
