@@ -8,8 +8,6 @@ in
     inputs.spicetify-nix.homeManagerModules.default
   ];
 
-  home.username = "lumi";
-  home.homeDirectory = "/home/lumi";
   home.stateVersion = "26.05";
 
   home.sessionPath = [
