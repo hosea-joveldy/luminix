@@ -168,7 +168,10 @@ in
     force = true;
   };
   xdg.configFile."quickshell" = {
-    source = config.lib.file.mkOutOfStoreSymlink "/home/lumi/lab/projects/luminix/modules/quickshell";
+    source =
+      if config.home.username == "lumi"
+      then config.lib.file.mkOutOfStoreSymlink "/home/lumi/lab/projects/luminix/modules/quickshell"
+      else ./modules/quickshell;
     force = true;
   };
   xdg.configFile."mimeapps.list".force = true;
