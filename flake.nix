@@ -40,7 +40,10 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.lumi = import ./home.nix;
+          home-manager.users = {
+            lumi = import ./home.nix;
+            jeral = import ./home.nix;
+          };
           home-manager.extraSpecialArgs = { inherit inputs; };
           home-manager.sharedModules = [
             plasma.homeModules.plasma-manager

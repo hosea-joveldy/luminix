@@ -102,6 +102,15 @@
     ];
   };
 
+  users.users."jeral" = {
+    isNormalUser = true;
+    description = "jeral";
+    extraGroups = [ "networkmanager" "input"];
+    packages = with pkgs; [
+      kdePackages.kate
+    ];
+  };
+
   programs.nix-ld.enable = true;
 
   programs.gnupg.agent = {
